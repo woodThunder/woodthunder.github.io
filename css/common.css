@@ -1,0 +1,25 @@
+*{box-sizing: border-box; padding: 0; margin: 0;}
+a{text-decoration: none;}
+.wrap{max-width: 1200px; width: 94%; margin: auto; }
+.nav{padding:20px; background: #3d3d3d; overflow: hidden;}
+.nav a{ display: block; padding: 8px 14px; float: left; color: #fff; margin: 0 3px; font-size: 14px;}
+.nav a.on{background: #303030; border-radius: 5px;}
+.nav a:hover{background: #303030; border-radius: 5px;}
+
+.main>h3{height: 40px;line-height: 40px;color: #fff;background: #0074D9;padding-left: 10px;font-size: 14px;}
+.con >h4{height: 40px;line-height: 40px;color: #fff;background: #C0C0C0;padding-left: 10px;font-size: 12px;border-radius: 0 0 3px 3px;}
+.con code a{color: #fff;padding: 0 10px;background: #008000;}
+.con code a:hover{background: #f00;}
+.con code a:active{background: #008000;color: #fff;}
+.con code{
+    padding: 2px 4px;
+    color: #d14;
+    white-space: nowrap;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    margin-left: 15px;
+}
+.con pre{font-family: "微软雅黑";position: relative;text-align: left;color: #48484c;background: #f7f7f9;border: 1px solid #e1e1e8;border-top: none;padding-top:20px;}
+.con pre>b{color: red;font-family: arial;}
+
+.syntaxhighlighter{overflow: hidden !important; font-size: 12px !important;}
