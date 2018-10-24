@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6 lt8 lt9 lt10"><![endif]-->
+<!--[if IE 7]><html class="ie ie7 lt8 lt9 lt10"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lt9 lt10"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 lt10"><![endif]-->
+<!--[if (gt IE 9) | !(IE)]><!-->
+<html>
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="hongru" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />
+<title>swiper2-video</title>
+<link href="css/idangerous.swiper.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/idangerous.swiper.js"></script>
+<style>
+*{padding: 0; margin: 0; box-sizing: border-box;}
+.banner_index{height: auto !important; overflow: hidden;}
+.banner_index .swiper-wrapper{height: auto !important; overflow: hidden;}
+.banner_index .swiper-slide{position:relative; height: auto !important; overflow: hidden;}
+.banner_index .swiper-slide img{width: 100%;}
+.banner_index .swiper-slide video{
+	position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: cover;
+}
+.banner .swiper-pagination {
+	font-size: 0;
+	position: absolute;
+	z-index: 20;
+	bottom: 20px;
+	width: 100%;
+	padding: 0 ;
+	text-align: center;
+}
+
+.banner .swiper-pagination-switch {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin: 3px 13px;
+	cursor: pointer;
+	background: #fff;
+}
+
+.banner .swiper-active-switch {
+	width: 16px;
+	height: 16px;
+	border: none;
+	margin: 0 10px;
+}
+</style>
+</head>
+<body>
+<div class="main">
+    <!--图片轮播-->
+    <div class="banner">
+    	<div class="swiper-container banner_index">
+		    <div class="swiper-wrapper">
+			    <div class="swiper-slide ban_video" data-video="flash/innovation.mp4">
+			    	<img src="upload/in_bnimg01.jpg" alt="">
+			    </div>
+			    <div class="swiper-slide">
+			    	<img src="upload/in_bnimg01.jpg" alt="">
+			    </div>
+			    <div class="swiper-slide">
+			    	<img src="upload/in_bnimg01.jpg" alt="">
+			    </div>
+		    </div>
+		    <!--<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>-->
+
+		    <div class="swiper-pagination"></div>
+		</div>
+    </div>
+</div>
+<script>
+//有loop:true时，onSlideChangeEnd开始不执行
+$(document).ready(function(){
+	var flag = false;
+	var mySwiper = new Swiper('.banner_index', {
+		autoplay: 5000,//可选选项，自动滑动
+		autoHeight: true,
+		loop: true,
+//		pagination : '.banner_index .swiper-pagination',
+//		prevButton: '.banner_index .swiper-button-prev',
+		pagination : '.banner_index .swiper-pagination',
+		paginationClickable: true,
+		onSlideChangeEnd: function(swiper){
+			console.log(swiper.activeIndex);
+            var _this = $('.banner_index .swiper-slide').eq(swiper.activeIndex);
+            videoSelect(_this);
+           
+        }
+	})
+   	videoSelect($('.banner_index .swiper-slide.swiper-slide-active'));
+	function videoSelect(_this){
+		var flag = true;
+	    var cc = _this.hasClass('ban_video');
+	    if(cc){
+//	    	console.log(44);
+	        mySwiper.stopAutoplay();
+	        var videos = 
+'<video src="'+ _this.data('video') +'" autoplay="autoplay" muted class="vv" style="display:none;"></video>';
+	        _this.append(videos);
+			
+			var aaa = setInterval(function(){
+				if(!isNaN($(".vv").get(0).duration)&&flag){
+					clearInterval(aaa);
+					flag=false;
+					setTimeout(function(){
+						_this.find('video').css("display","block");
+					},500)
+				}
+			},10); 
+			
+	        _this.find('video').bind('ended',function () {
+	            mySwiper.swipeNext();
+	            mySwiper.startAutoplay();
+	        });
+	    }else{
+	        $('.vv').remove();
+	    }
+	}
+	
+	
+	
+	$('.index2_l').click(function(){
+		index2_swiper.swipePrev(); 
+	})
+	$('.index2_r').click(function(){
+		index2_swiper.swipeNext(); 
+	})
+})
+</script>
+</body>
+</html>

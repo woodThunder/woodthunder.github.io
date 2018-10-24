@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.placeholder.js"></script>
+		<style>
+			*,input,textarea{color: #f00;}
+			::-webkit-input-placeholder { /* WebKit browsers */
+color: #f00;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color: #f00;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+color: #f00;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+color: #f00;
+}
+		</style>
+	</head>
+	<body>
+		<input type="text" placeholder="文本框"/>
+		<input type="password" placeholder="密码框"/>
+		<textarea placeholder="文本域"></textarea>
+		<script>
+			$(document).ready(function(){
+				$('input, textarea').placeholder();
+			})
+			
+			/*
+			function placeholderSupport() {
+			    return 'placeholder' in document.createElement('input');
+			}
+			console.log(placeholderSupport());
+			if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+			    $('[placeholder]').focus(function() {
+			        var input = $(this);
+			        if (input.val() == input.attr('placeholder')) {
+			            input.val('');
+			        }
+			    }).blur(function() {
+			        var input = $(this);
+			        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+			            input.val(input.attr('placeholder'));
+			        }
+			    }).blur();
+			};
+			
+			if(!placeholderSupport()){
+				$("input[type=password]").each(function(){
+		//			console.log($(this).val());
+					$(this).attr("type","text")
+					var _val = $(this).attr("placeholder");
+		//			$(this).val(_val);
+		//			$(this).removeAttr("placeholder");
+					$(this).focus(function(){
+						$(this).attr("type","password");
+					});
+					$(this).blur(function(){
+						
+						if($(this).val() == _val){
+							$(this).attr("type","text")
+							return;
+						}else{
+							
+						}
+					});
+				});
+			}
+			*/
+		</script>
+	</body>
+</html>

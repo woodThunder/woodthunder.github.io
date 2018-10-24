@@ -4,6 +4,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script src="js/jquery.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no" name="viewport" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
@@ -24,6 +27,7 @@
 	<body>
 		<div class="nav">
 			<a href="#" class="on">常见js方法</a>
+			<a href="swiper.html" target="_blank">swiper</a>
 			<a href="demo/wheel/index.html" target="_blank">大转盘</a>
 			<a href="website.html" target="_blank">网站链接</a>
 		</div>
@@ -96,6 +100,67 @@
 				    </script>
 				</pre>
 				
+				<h4>
+					IE9对placeholder的兼容性处理
+					<code><a href="https://github.com/mathiasbynens/jquery-placeholder" target="_blank">jquery.placeholder.js IE
+					6+</a></code>
+				</h4>
+				<pre class="brush: js;">
+					<script>
+						function placeholderSupport() {
+						    return 'placeholder' in document.createElement('input');
+						}
+						$(function(){
+							//所有包含placeholder属性的标签
+							if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+							    $('[placeholder]').focus(function() {
+							        var input = $(this);
+							        if (input.val() == input.attr('placeholder')) {
+							            input.val('');
+							        }
+							    }).blur(function() {
+							        var input = $(this);
+							        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+							            input.val(input.attr('placeholder'));
+							        }
+							    }).blur();
+							};
+							//密码框
+							if(!placeholderSupport()){
+								$("input[type=password]").each(function(){
+									$(this).attr("type","text")
+									var _val = $(this).attr("placeholder");
+									$(this).focus(function(){
+										$(this).attr("type","password");
+									});
+									$(this).blur(function(){
+										if($(this).val() == _val){
+											$(this).attr("type","text")
+											return;
+										}
+									});
+								});
+							}
+							
+						})
+					</script>
+					<style>
+						/*样式控制统一placeholder的颜色*/
+						::-webkit-input-placeholder { /* WebKit browsers */
+							color: #fff;
+						}
+						:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+							color: #fff;
+						}
+						::-moz-placeholder { /* Mozilla Firefox 19+ */
+							color: #fff;
+						}
+						:-ms-input-placeholder { /* Internet Explorer 10+ */
+							color: #fff;
+						}
+					</style>
+				</pre>
+				
 				<h4>实时统计文本域或者可编辑区域内容的长度</h4>
 				<pre class="brush: js;">
 					<textarea class="message_ta" id="message_ta" placeholder=""></textarea>
@@ -104,6 +169,44 @@
 						$("#message_ta").bind("input propertychange blur",function(e){
 				            var _len = $(this).text().length;
 				        })
+					</script>
+				</pre>
+				
+				<h4>模拟gif图挂件的上划显示，下滑隐藏效果，不滑动几秒后隐藏</h4>
+				<pre class="brush: js;">
+					<a href="#" class="wheel"><img src="images/wheel.gif" /></a>
+					<style>
+						.wheel{ display: block; width: 2rem; height: 2rem; position: fixed; bottom: 0.4rem; left: -0.34rem; z-index: 100; transition: all 0.5s;}
+						.wheel.on{transform: translate(-0.5rem,0);-webkit-transform: translate(-0.5rem,0);}
+						.wheel img{width: 100%;}
+					</style>
+					<script>
+						window.onload = function(){
+						    var timer1;
+						    var timer = setTimeout(function(){
+						        $(".wheel").addClass("on");
+						    },3000)
+						    var a = 0;
+						    $(window).scroll(function(){
+						        clearTimeout(timer);
+						        clearTimeout(timer1);
+						        var scTop = $(window).scrollTop();
+						
+						        if(scTop >= a){
+						            a = scTop;
+						            $(".wheel").addClass("on");
+						            return false;
+						
+						        }else{
+						            a = scTop;
+						            $(".wheel").removeClass("on");
+						            timer1 = setTimeout(function(){
+						                $(".wheel").addClass("on");
+						            },3000)
+						        }
+						
+						    })
+						}
 					</script>
 				</pre>
 			</div>
