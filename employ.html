@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Employ</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.min.js"></script>
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css" rel="stylesheet">
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false; //去掉右上角问号图标
+			SyntaxHighlighter.config.tagName = 'pre'; //可以更改解析的默认Tag。
+			SyntaxHighlighter.config.bloggerMode = true; 
+			SyntaxHighlighter.config.stripBrs = true;  
+			SyntaxHighlighter.all();
+		</script>
+		<link rel="stylesheet" href="css/common.css" />
+	</head>
+	<body>
+		<div class="nav">
+			
+		</div>
+		<div class="main wrap">
+			<h3>JS Employ</h3>
+			<div class="con">
+				<h4>
+				1、a、b两个字符串，不借助其他变量，实现a与b交换
+				</h4>
+				<pre class="brush: js;">
+					
+				</pre>
+				
+				<h4></h4>
+				<pre class="brush: js;">
+					
+				</pre>
+			</div>
+			<h3>CSS Employ</h3>
+			<div class="con">
+				<h4>1、css清除浮动</h4>
+				<pre class="brush: js;">
+					浮动父元素overflow:hidden;
+					浮动最后一个元素clear:both;
+				</pre>
+				
+				<h4>2、position取值</h4>
+				<pre class="brush: js;">
+					position:inherit;父元素继承
+					position:fixed;相对于浏览器窗口的绝对定位
+					position:relative;相对定位
+					position:absolute;相对于拥有相对定位的就近祖先元素定位
+					position:static;没有定位
+				</pre>
+				
+				<h4>3、z-index不生效的场景有哪些</h4>
+				<pre class="brush: js;">
+					仅能在定位元素上奏效;
+					同一个父元素下的元素的层叠效果会受父元素的z-index影响,如果父元素的z-index值很小,那么子元素的z-index值很大也不起作用.
+				</pre>
+				
+				<h4>
+					4、不定宽高元素垂直水平居中
+					<code><a href="demo/CSS/center.html">案例1</a></code>
+				</h4>
+				<pre class="brush: js;">
+					/*兼容ie8+*/
+					#box { width:200px; height:200px; background:#808080; position:relative; float: left; margin:0 10px 20px;}
+					#content { width:50%; height:50%; background:pink; position:absolute; top:0; right:0; bottom:0; left:0; margin:auto; }
+					
+					/*兼容ie9+*/
+					#box1 { width:200px; height:200px; background:#808080; position:relative; float: left; margin:0 10px 20px;}
+					#content1{ position:absolute; width:50%; height:50%; background:pink; left:50%; top:50%;  transform:translateX(-50%) translateY(-50%); -webkit-transform:translateX(-50%) translateY(-50%); }
+				</pre>
+				
+				<h4>5、css实现一个占屏幕宽度50%的正方形</h4>
+				<pre class="brush: js;">
+					.ele{width:50%; height:0; padding-bottom:50%;}
+					.ele{width:50vw; height:50vw;}
+				</pre>
+				
+				<h4>
+					6、布局问题（三列布局、两列布局）
+					<code><a href="demo/CSS/layout.html">三列布局</a></code>
+				</h4>
+				<pre class="brush: js;">
+					<div class="box">
+						<div class="left"></div>
+						<div class="center"></div>
+						<div class="right"></div>
+					</div>
+					<style>
+						*{padding: 0; margin: 0;}
+						.box{position: relative; margin-bottom: 50px;}
+						.box .left{position: absolute; top: 0; left: 0; width: 300px; height: 100%; background: #0074D9;}
+						.box .center{margin: 0 300px; background: #808080; height: 300px;}
+						.box .right{position: absolute; top: 0; right: 0;width: 300px; height: 100%; background: pink;}
+					</style>
+				</pre>
+				
+				<h4>
+					8、css实现三角形
+				</h4>
+				<pre class="brush: js;">
+					<div class="box">宽度20，高度10</div>
+					<style>
+						*{padding: 0; margin: 0;}
+						.box{width: 0; height: 0; border: transparent solid 10px; border-bottom-color: #f00;}
+					</style>
+				</pre>
+				
+				<h4>
+					9、HSL色彩模型是什么，在CSS中如何使用
+				</h4>
+				<pre class="brush: js;">
+					HSLA(H,S,L,A);
+					H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360
+					S：Saturation(饱和度)。取值为：0.0% - 100.0%
+					L：Lightness(亮度)。取值为：0.0% - 100.0%
+					A：Alpha透明度。取值0~1之间。
+					
+					RGBA(R,G,B,A);
+					R：红色值。正整数 | 百分数
+					G：绿色值。正整数 | 百分数
+					B：蓝色值。正整数 | 百分数
+					A：Alpha透明度。取值0~1之间。
+				</pre>
+				
+				<h4>
+					11、请使用CSS3实现一个长宽等于100px的div，1000ms后变成一个有阴影圆形，并横向向右移动了50px的效果。加分：用画布实现以上效果
+				</h4>
+				<pre class="brush: js;">
+					<div class="box"></div>
+					<style>
+						*{padding: 0; margin: 0;}
+						.box{animation: ani 1s 1s;width: 100px; height: 100px;background: #0074D9; }
+						@keyframes ani{
+							from{ }
+							to{border-radius: 50%; box-shadow: 0 0 20px #eee; transform: translateX(50px);}
+						}
+					</style>
+				</pre>
+			</div>
+		</div>
+	</body>
+</html>
+
+

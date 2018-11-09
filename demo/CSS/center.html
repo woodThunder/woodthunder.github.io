@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<div id="content"></div>
+		</div>	
+		<div id="box1">
+			<div id="content1"></div>
+		</div>	
+		<div id="box2">
+			<div id="content2"></div>
+		</div>
+		<div id="box3">
+			<div id="content3"></div>
+		</div>
+		<div id="box4">
+			<div id="content4"></div>
+		</div>
+		<div style="width: 10vw; height:10vw; background:#808080; float: left;margin:0 10px 20px;"></div>
+		<div style="width: 10%; height:0; padding-bottom: 10%; background:#808080; float: left;margin:0 10px 20px;"></div>
+		
+		
+	</body>
+	<style>
+		
+	body,html{ margin:0; padding: 0; }
+	
+	/*兼容ie8+*/
+	#box { width:200px; height:200px; background:#808080; position:relative; float: left; margin:0 10px 20px;}
+	#content { width:50%; height:50%; background:pink; position:absolute; top:0; right:0; bottom:0; left:0; margin:auto; }
+	
+	/*兼容ie9+*/
+	#box1 { width:200px; height:200px; background:#808080; position:relative; float: left; margin:0 10px 20px;}
+	#content1{ position:absolute; width:50%; height:50%; background:pink; left:50%; top:50%;  transform:translateX(-50%) translateY(-50%); -webkit-transform:translateX(-50%) translateY(-50%); }
+	
+ 	/*不兼容ie*/
+	#box2 { width:200px; height:200px; background:#808080; position:relative; float: left; margin:0 10px 20px; display:flex; display:-webkit-flex;display:-ms-flex; justify-content:center; align-items:center; }
+	#content2 {position:absolute; width:50%; height:50%; background:pink; }
+	
+	/*不兼容ie*/
+	#box3 { width:200px; height:200px; background:#808080;  float: left; margin:0 10px 20px; display:box; box-pack:center; box-align:center; display:-webkit-flexbox; -webkit-box-pack:center; -webkit-box-align:center; }  
+	#content3 { width:50%; height:50%; background:pink; }  
+	
+	/*不兼容ie*/
+	/*#box4 { width:200px; height:200px; background:#808080;  float: left; margin:0 10px 20px; display:table; }  
+	#content4 { width:50%; height:50%; background:pink; display: table-cell; vertical-align: middle; } */
+	</style>
+</html>

@@ -1,0 +1,70 @@
+*{padding: 0; margin: 0;}
+body{background: #f6f6f6;}
+a{text-decoration: none;transition: all 0.3s;}
+i,em{font-style: normal;}
+.wrap{width: 94%; max-width: 1280px; margin: auto;}
+.honor4{border-top: #bebebe solid 1px; padding-top: 20px; overflow: hidden;}
+.about_history{}
+.about_history .part_1{position: relative;}
+.about_history .part_1 .leftbox{float: left;width: 333px;height: 760px;}
+.about_history .part_1 .leftbox .swiper-container{height: 100%;width: 100%}
+.about_history .part_1 a{color: #a6a6a6;display: block;margin: auto;border-radius: 25px;width: 90%;text-align: center;position: relative;font-size: 1em;margin: 16px auto;opacity: 0;transform-origin:50% 50%;}
+.about_history .part_1 .leftbox .swiper-slide-active a{color: #fff;background: #00aeef;font-size: 1.6em;box-shadow: 0 5px 10px 3px #d2d2d2;border: 1px solid #fff;opacity: 1; }
+.about_history .part_1 a:before{content: "";position: absolute;display: block;width: 25px;height: 25px;background-image: url(../images/dot_07.png);right: 15px;top: 50%;transform: translateY(-50%);opacity: 0;transition: all .3s;}
+.about_history .part_1 .leftbox .swiper-slide-active a:hover{color: #fff!important;}
+.about_history .part_1 .leftbox .swiper-slide-active a:before{opacity: 1;}
+.about_history .part_1 .leftbox .swiper-slide em{display: none;}
+.about_history .part_1 .leftbox .swiper-slide-active em{display: inline;}
+.about_history .part_1 .leftbox .swiper-slide i{display: inline-block;border-bottom: 2px solid #92918f;width: 73px;position: relative;margin-right: 14px;top: -6px;}
+.about_history .part_1 .leftbox .swiper-slide-active i{display: none;}
+.about_history .part_1 .rightbox{width: calc(93% - 333px);width: -moz-calc(93% - 333px);;float: right;}
+.about_history .part_1 li{float: left; width: 100%; padding: 35px 0; border-bottom:#bebebe solid 1px;overflow: hidden;}
+
+.about_history .part_1 li h1{ line-height: 1.66em; overflow: hidden; color: #242424; font-weight: bold; font-size: 18px;}
+.about_history .part_1 li p{color: #7f7f7f; line-height: 22px;margin-top: 10px; }
+.about_history .part_1 li img{max-width: 100%; margin-top: 25px;}
+
+
+
+
+@media only screen and (max-width:1300px){
+	.about_history .part_1 .leftbox{width: 300px;}
+	.about_history .part_1 .rightbox{width: calc(97% - 300px);width: -moz-calc(97% - 300px)}
+}
+
+@media only screen and (min-width:1024px){
+	.about_history .part_1 .leftbox .prev_nth2Mode a{transform: rotate(-10deg);opacity: 1;}
+	.about_history .part_1 .leftbox .next_nth2Mode a{transform: rotate(10deg) translateY(20px);opacity: 1;}
+	.about_history .part_1 .leftbox .prev_nth3Mode a{transform: rotate(-15deg) translateX(-17px);opacity: 1;}
+	.about_history .part_1 .leftbox .next_nth3Mode a{transform: rotate(15deg) translateX(-17px) translateY(20px);opacity: 1;}
+	.about_history .part_1 .leftbox .prev_nth4Mode a{transform: rotate(-20deg) translateX(-40px);opacity: 1;}
+	.about_history .part_1 .leftbox .next_nth4Mode a{transform: rotate(20deg) translateX(-40px) translateY(20px);opacity: 1;}
+	.about_history .part_1 .leftbox .prev_nth5Mode a{transform: rotate(-25deg) translateX(-65px);opacity: 1;}
+	.about_history .part_1 .leftbox .next_nth5Mode a{transform: rotate(25deg) translateX(-65px) translateY(20px);opacity: 1;}
+	.about_history .part_1 .leftbox .prev_nth6Mode a{transform: rotate(-30deg) translateX(-99px);opacity: 1;}
+	.about_history .part_1 .leftbox .next_nth6Mode a{transform: rotate(30deg) translateX(-99px) translateY(20px);opacity: 1;}
+	.about_history .part_1 li{padding: 30px 0;}
+}
+
+@media only screen and (max-width:1023px){
+	.about_history .part_1 .leftbox{width: 200px;height: 500px; padding-top: 30px;}
+	.about_history .part_1 a{opacity: 1;}
+	.about_history .part_1 .leftbox .swiper-slide-active a{top: -11px;}
+	.about_history .part_1 .rightbox{width: -moz-calc(97% - 200px);width: calc(97% - 200px)}
+	.about_history .part_1 li .img{width: 100%;}
+}
+@media only screen and (max-width:768px){
+	.about_history .part_1 .leftbox{padding-top: 20px;}
+	.about_history .part_1 li{padding: 20px 0;}
+}
+
+@media only screen and (max-width:767px){
+	.about_history .part_1 .leftbox{width: 120px;height: 300px; padding-top: 20px;}
+	.about_history .part_1 .rightbox{width: -moz-calc(100% - 140px);width: calc(100% - 140px)}
+	.about_history .part_1 li p,.about_history .part_1 li h4{width: 100%;}
+	.about_history .part_1 .leftbox .swiper-slide-active a{font-size: 1.2em;top: -7px;}
+	.about_history .part_1 .leftbox .swiper-slide i{width: 40px;}
+	.about_history .part_1 a:before{width: 17px;height: 17px;background-size: cover;right: 6px;}
+	.about_history .part_1 li{width: 100%; padding: 20px 0;}
+}
+

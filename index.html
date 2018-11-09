@@ -29,6 +29,8 @@
 			<a href="#" class="on">常见js方法</a>
 			<a href="swiper.html" target="_blank">swiper</a>
 			<a href="demo/wheel/index.html" target="_blank">大转盘</a>
+			<a href="demo/events/index.html" target="_blank">大事记</a>
+			<a href="phone.html" target="_blank">移动端</a>
 			<a href="website.html" target="_blank">网站链接</a>
 		</div>
 		<div class="main wrap">
@@ -123,7 +125,7 @@
 							        if (input.val() == '' || input.val() == input.attr('placeholder')) {
 							            input.val(input.attr('placeholder'));
 							        }
-							    }).blur();
+							    });
 							};
 							//密码框
 							if(!placeholderSupport()){
@@ -208,6 +210,39 @@
 						    })
 						}
 					</script>
+				</pre>
+				
+				<h4>捕获窗口关闭、刷新事件</h4>
+				<pre class="brush: js;">
+					页面加载时只执行onload 
+					页面关闭时先执行onbeforeunload，最后onunload 
+					页面刷新时先执行onbeforeunload，然后onunload，最后onload。
+				</pre>
+				
+				<h4>获取验证码倒计时效果</h4>
+				<pre class="brush: js;">
+					var validCode = true;
+					$(document).on("click", ".ele", function() {
+						if(validCode) {
+							validCode = false;
+							var time = 60;
+							var _this = $(this);
+							_this.addClass("disabled");
+							var t = setInterval(function() {
+								time--;
+								_this.html(time + "秒");
+								if(time == 0) {
+									clearInterval(t);
+									_this.html("重新获取");
+									_this.removeClass("disabled");
+									validCode = true;
+								}
+							}, 1000)
+						}
+					})
+					<style>
+						.ele.disabled{cursor: no-drop;}
+					</style>
 				</pre>
 			</div>
 		</div>
