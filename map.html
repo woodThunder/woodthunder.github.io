@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度地图</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.min.js"></script>
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css" rel="stylesheet">
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false; //去掉右上角问号图标
+			SyntaxHighlighter.config.tagName = 'pre'; //可以更改解析的默认Tag。
+			SyntaxHighlighter.config.bloggerMode = true; 
+			SyntaxHighlighter.config.stripBrs = true;  
+			SyntaxHighlighter.all();
+		</script>
+		<link rel="stylesheet" href="css/common.css" />
+	</head>
+	<body>
+		<div class="nav">
+			<a href="https://www.haozu.com/bj/house376893/" target="_blank">好租</a>
+			<a href="demo/map/" target="_blank">仿好租</a>
+		</div>
+		<div class="main wrap">
+			<h3>百度地图</h3>
+			<div class="con">
+				<h4>常用方法</h4>
+				<pre class="brush: js;">
+					//百度地图坐标拾取系统http://api.map.baidu.com/lbsapi/getpoint/index.html
+					/*
+					function initMap(){
+				      createMap();
+				      setMapEvent();
+				      addMapControl();
+				      addMapOverlay();
+				    }
+				    function createMap(){ 
+				      map = new BMap.Map("map"); 
+				      map.centerAndZoom(new BMap.Point(116.401197,39.920105),18);
+				    }
+				    function setMapEvent(){
+				      map.enableScrollWheelZoom();
+				      map.enableKeyboard();
+				      map.enableDragging();
+				      map.enableDoubleClickZoom()
+				    }
+				    function addClickHandler(target,window){
+				      target.addEventListener("click",function(){
+				        target.openInfoWindow(window);
+				      });
+				    }
+				    function addMapOverlay(){
+				      var markers = [
+				        {content:"内容",title:"标题",imageOffset: {width:-46,height:-21},position:{lat:39.920202,lng:116.400999}}
+				      ];
+				      for(var index = 0; index < markers.length; index++ ){
+				        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+				        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+				          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+				        })});
+				        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+				        var opts = {
+				          width: 200,
+				          title: markers[index].title,
+				          enableMessage: false
+				        };
+				        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+				        marker.setLabel(label);
+				        addClickHandler(marker,infoWindow);
+				        map.addOverlay(marker);
+				      };
+				    }
+				    function addMapControl(){
+				      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+				      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+				      map.addControl(scaleControl);
+				      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+				      map.addControl(navControl);
+				      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+				      map.addControl(overviewControl);
+				    }
+				    var map;
+				    initMap();
+				    */
+				</pre>
+			</div>
+		</div>
+	</body>
+</html>

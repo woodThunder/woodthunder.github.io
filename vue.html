@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>VUE</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.min.js"></script>
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css" rel="stylesheet">
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false; //去掉右上角问号图标
+			SyntaxHighlighter.config.tagName = 'pre'; //可以更改解析的默认Tag。
+			SyntaxHighlighter.config.bloggerMode = true; 
+			SyntaxHighlighter.config.stripBrs = true;  
+			SyntaxHighlighter.all();
+		</script>
+		<link rel="stylesheet" href="css/common.css" />
+	</head>
+	<body>
+		<div class="nav">
+			<!--<a href="http://www.ccland.com.cn/" target="_blank">中筑置业</a>-->
+		</div>
+		<div class="main wrap">
+			<h3>常见VUE</h3>
+			<div class="con">
+				<h4>百度地图</h4>
+				<pre class="brush: js;">
+					<!--
+					1、在index.html中引入用到的地图js，秘钥需要申请
+					<script src="https://api.map.baidu.com/api?v=2.0&ak=DEYxtcP4jqglG5j8SHiLDEc6"></script>
+					2、在 webpack.base.config.js 配置文件中配置BMap，在module.exports 中与entry平级. (需要重新 npm run dev启动服务器才可以) 
+					externals: {
+					    "BMap": "BMap"
+					}
+					3、在组件中创建一个容器，容器必须有高度；
+					<template>
+						<div class="map_wrap">
+						    <div id="map"></div>
+						</div>
+					</template>
+					4、在地图组件中import BMap
+					import BMap from 'BMap'
+					5、创建地图对象，在mounted生命周期调用，其中会有一些eslint的警告
+					Use // eslint-disable-next-line to ignore the next line.
+					Use /* eslint-disable */ to ignore all warnings in a file.
+					export default {
+					  data () {
+					    return {
+					    }
+					  },
+					  methods: {
+					    map () {
+					      /* eslint-disable */
+					      function initMap(){
+					        createMap();
+					        setMapEvent();
+					        addMapControl();
+					        addMapOverlay();
+					      }
+					      function createMap(){
+					        map = new BMap.Map("map");
+					        map.centerAndZoom(new BMap.Point(116.401197,39.920105),18);
+					      }
+					      function setMapEvent(){
+					        map.enableScrollWheelZoom();
+					        map.enableKeyboard();
+					        map.enableDragging();
+					        map.enableDoubleClickZoom()
+					      }
+					      function addClickHandler(target,window){
+					        target.addEventListener("click",function(){
+					          target.openInfoWindow(window);
+					        });
+					      }
+					      function addMapOverlay(){
+					        var markers = [
+					          {content:"内容",title:"标题",imageOffset: {width:-46,height:-21},position:{lat:39.920202,lng:116.400999}}
+					        ];
+					        for(var index = 0; index < markers.length; index++ ){
+					          var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+					          var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+					              imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+					            })});
+					          var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+					          var opts = {
+					            width: 200,
+					            title: markers[index].title,
+					            enableMessage: false
+					          };
+					          var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+					          marker.setLabel(label);
+					          addClickHandler(marker,infoWindow);
+					          map.addOverlay(marker);
+					        };
+					      }
+					      function addMapControl(){
+					        var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+					        scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+					        map.addControl(scaleControl);
+					        var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+					        map.addControl(navControl);
+					        var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+					        map.addControl(overviewControl);
+					      }
+					      var map;
+					      initMap();
+					    }
+					  },
+					  mounted () {
+					    this.map()
+					  }
+					}
+					-->
+				</pre>
+			</div>
+			
+			<div class="con">
+				<h4>瀑布流+下拉加载</h4>
+				<pre class="brush: js;">
+					
+				</pre>
+			</div>
+			
+		</div>
+	</body>
+</html>

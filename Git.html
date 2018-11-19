@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Git</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.min.js"></script>
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css" rel="stylesheet">
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['toolbar'] = false; //去掉右上角问号图标
+			SyntaxHighlighter.config.tagName = 'pre'; //可以更改解析的默认Tag。
+			SyntaxHighlighter.config.bloggerMode = true; 
+			SyntaxHighlighter.config.stripBrs = true;  
+			SyntaxHighlighter.all();
+		</script>
+		<link rel="stylesheet" href="css/common.css" />
+	</head>
+	<body>
+		<div class="nav">
+			<a href="http://www.ccland.com.cn/" target="_blank">中筑置业</a>
+			<a href="http://www.ideal.com.cn/" target="_blank">艾迪尔</a>
+			<a href="http://www.dhguanye.com/" target="_blank">东宏管业</a>
+			<a href="http://www.hollysys.com/" target="_blank">和利时</a>
+		</div>
+		<div class="main wrap">
+			<h3>常见Git方法</h3>
+			<div class="con">
+				<h4>工作区、暂存区、版本区</h4>
+				<pre class="brush: js;">
+					//工作区提交到暂存区：
+					//git add -A  提交所有变化
+					//git add -u  提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+					//git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
+					
+					//暂存区提交到版本区：
+					//git commit -m '注释'
+						
+					//工作区提交到版本区：-a是add的缩写
+					//git commit －a －m '注释'
+				</pre>
+			</div>
+		</div>
+	</body>
+</html>
