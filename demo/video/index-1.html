@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>video</title>
+		<style>
+			*{padding: 0; margin: 0;}
+			.v1{width: 100%;}
+		</style>
+	</head>
+	<body>
+		<!--
+			视频在当前窗口播放
+			controls安卓机无效
+			poster的图片需要和视频的尺寸一致
+			安卓:x5-playsinline: 视频在当前窗口播放，不会跳出黑底全屏播放，但是层级会最高，不能显示其他同层元素
+			苹果:playsinline webkit-playsinline: 视频在当前窗口播放，可以显示其他同层元素
+			x5-video-player-type="h5" 视频可以有其他的同层元素，同时视频会全屏，安卓还会隐藏controls
+		--> 
+		<!--<video src="https://xinhongru-1253290912.cos.ap-beijing.myqcloud.com/WeChatSight2541.mp4" poster="images/yuer_img01.jpg"  x5-playsinline playsinline webkit-playsinline   preload="true" class="v1"></video>-->
+		<video src="https://xinhongru-1253290912.cos.ap-beijing.myqcloud.com/WeChatSight2541.mp4" poster="" class="v1" autoplay="autoplay" muted="muted"></video>
+	</body>
+</html>

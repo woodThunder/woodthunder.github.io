@@ -65,14 +65,28 @@
 				
 				<h4>
 					视频H5 video最佳实践
-					<code><a href="https://github.com/gnipbao/iblog/issues/11" target="_blank">转自</a></code>
-					<code><a href="" target="_blank">仿抖音</a></code>
+					<code><a href="https://github.com/gnipbao/iblog/issues/11" target="_blank">参考</a></code>
+					<code>微信公众号-飞鹤星妈会-新鲜育儿观</code>
 				</h4>
 				<pre class="brush: js;">
-					/*
-					 
-					 
-					*/
+					
+					//poster的图片需要和视频的尺寸一致
+					
+					//preload 属性规定是否在页面加载后载入视频。
+					//auto - 当页面加载后载入整个视频
+					//meta - 当页面加载后只载入元数据
+					//none - 当页面加载后不载入视频
+					
+					//视频播放时局域播放，不脱离文档流,不全屏
+					//安卓:x5-playsinline: 视频在当前窗口播放，不会跳出黑底全屏播放，但是层级会最高，不能显示其他同层元素
+					//苹果:playsinline webkit-playsinline: 视频在当前窗口播放，可以显示其他同层元素
+					//不加controls时,安卓默认有用户控制,苹果默认没有;
+					//<video src="" poster="" preload="auto"  x5-playsinline playsinline webkit-playsinline controls></video>
+					
+					//全屏打开视频
+					//x5-video-player-type="h5" 视频可以有其他的同层元素，同时视频会全屏，苹果会吊起自己内置的浏览器,并且层级最高; 安卓有自己默认的返回按钮
+					//playsinline webkit-playsinline加上后ios端都可以保证内敛到浏览器webview里面了
+					//<video id="video" src="" poster="" x5-video-player-type="h5" playsinline webkit-playsinline></video>
 				</pre>
 			</div>
 		</div>
