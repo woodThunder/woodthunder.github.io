@@ -46,6 +46,24 @@
 				    })
 				</pre>
 				
+				<h4>获取URL参数</h4>
+				<pre class="brush: js;">
+					//例子: https://www.baidu.com/?id=1&name=222
+					//直接通过参数获取参数值，参数需要加引号，不然会报错
+					function GetQueryString(parm) {
+					    let reg = new RegExp("(^|&)"+ parm +"=([^&]*)(&|$)");
+					    let r = window.location.search.substr(1).match(reg);//匹配正则表达式及其分组
+					    console.log(r);//["&name=222", "&", "222", "", index: 4, input: "id=1&name=222"]
+					    if(r!=null) {
+							return  unescape(r[2]); 
+						} else {
+							return null;
+						}
+					}
+					console.log(GetQueryString("name"),GetQueryString("id"))
+
+				</pre>
+				
 				<h4>
 					数字跳动
 					<code><a href="http://www.ideal.com.cn/" target="_blank">案例1</a></code>
@@ -246,6 +264,87 @@
 					<style>
 						.ele.disabled{cursor: no-drop;}
 					</style>
+				</pre>
+				
+				<h4>
+					距离某一天的倒计时
+					<code><a href="demo/countdown/index.html" target="_blank">实例</a></code>
+				</h4>
+				<pre class="brush: js;">
+					<div class="count">
+						<div class="count_day">
+							<span class="d1"></span>
+							<span class="d2"></span>
+							<span class="d3"></span>
+							<i>天</i>
+						</div>
+						<div class="count_time">
+							<span class="h1"></span>
+							<span class="h2"></span>
+							<i>时</i>
+							<span class="m1"></span>
+							<span class="m2"></span>
+							<i>分</i>
+							<span class="s1"></span>
+							<span class="s2"></span>
+							<i>秒</i>
+						</div>
+					</div>
+					<script>
+						$(document).ready(function(){
+							$(".count_close").click(function(){
+								$(".countdown").hide();
+							})
+							getCountDown()
+							setInterval(function(){
+								getCountDown()
+							},1000)
+						})
+						function getCountDown(){
+							var _currentTimeS = new Date().getTime();
+							var _endTimeS = format ("2019-10-28 00:00:00").getTime();
+							var _rangeTimeS = _endTimeS - _currentTimeS;
+							
+							var _d = padLeftZeroThree(Math.floor(((_rangeTimeS / 1000) / 3600) / 24));
+							$(".d1").html(_d.split("")[0])
+							$(".d2").html(_d.split("")[1])
+							$(".d3").html(_d.split("")[2])
+							var _h = padLeftZeroTwo(Math.floor((_rangeTimeS / 1000) / 3600) - _d*24);
+							$(".h1").html(_h.split("")[0])
+							$(".h2").html(_h.split("")[1])
+							var _m = padLeftZeroTwo(Math.floor((_rangeTimeS / 1000) / 60) - _d*24*60 - _h*60);
+							$(".m1").html(_m.split("")[0])
+							$(".m2").html(_m.split("")[1])
+							var _s = padLeftZeroTwo(Math.floor(_rangeTimeS / 1000) - _d*24*3600 - _h*60*60 - _m*60);
+							$(".s1").html(_s.split("")[0])
+							$(".s2").html(_s.split("")[1])
+							
+				//			console.log(_d+":"+_h+":"+_m+":"+_s)
+							console.log(_currentTimeS, _endTimeS)
+						}
+						//解决new Date()IE不支持参数
+						function format(str) { 
+				          //首先将日期分隔 ，获取到日期部分 和 时间部分
+				          var day = str.split(' ');
+				          //获取日期部分的年月日
+				          var days = day[0].split('-');
+				          //获取时间部分的 时分秒
+				          var mi = day[day.length - 1].split(':');
+				          //获取当前date类型日期
+				          var date = new Date();
+				          //给date赋值  年月日
+				          date.setUTCFullYear(days[0], days[1] - 1, days[2]);
+				          //给date赋值 时分秒  首先转换utc时区 ：+8
+				          date.setUTCHours(mi[0] - 8, mi[1], mi[2]);
+				          return date;
+						}
+						function padLeftZeroTwo(str) {
+						    return ('00' + str).substr(str.toString().length);
+						}
+						function padLeftZeroThree(str) {
+						    return ('000' + str).substr(str.toString().length);
+						}
+					</script>
 				</pre>
 			</div>
 		</div>
