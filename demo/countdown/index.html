@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时效果</title>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div class="count">
+			<div class="count_day">
+				<span class="d1"></span>
+				<span class="d2"></span>
+				<span class="d3"></span>
+				<i>天</i>
+			</div>
+			<div class="count_time">
+				<span class="h1"></span>
+				<span class="h2"></span>
+				<i>时</i>
+				<span class="m1"></span>
+				<span class="m2"></span>
+				<i>分</i>
+				<span class="s1"></span>
+				<span class="s2"></span>
+				<i>秒</i>
+			</div>
+		</div>
+		
+		<h1>new Date()IE不支持参数</h1>
+		<script>
+			$(document).ready(function(){
+				$(".count_close").click(function(){
+					$(".countdown").hide();
+				})
+				getCountDown()
+				setInterval(function(){
+					getCountDown()
+				},1000)
+			})
+			function getCountDown(){
+				var _currentTimeS = new Date().getTime();
+				var _endTimeS = format ("2019-10-28 00:00:00").getTime();
+				var _rangeTimeS = _endTimeS - _currentTimeS;
+				
+				var _d = padLeftZeroThree(Math.floor(((_rangeTimeS / 1000) / 3600) / 24));
+				$(".d1").html(_d.split("")[0])
+				$(".d2").html(_d.split("")[1])
+				$(".d3").html(_d.split("")[2])
+				var _h = padLeftZeroTwo(Math.floor((_rangeTimeS / 1000) / 3600) - _d*24);
+				$(".h1").html(_h.split("")[0])
+				$(".h2").html(_h.split("")[1])
+				var _m = padLeftZeroTwo(Math.floor((_rangeTimeS / 1000) / 60) - _d*24*60 - _h*60);
+				$(".m1").html(_m.split("")[0])
+				$(".m2").html(_m.split("")[1])
+				var _s = padLeftZeroTwo(Math.floor(_rangeTimeS / 1000) - _d*24*3600 - _h*60*60 - _m*60);
+				$(".s1").html(_s.split("")[0])
+				$(".s2").html(_s.split("")[1])
+				
+	//			console.log(_d+":"+_h+":"+_m+":"+_s)
+				console.log(_currentTimeS, _endTimeS)
+			}
+			//解决new Date()IE不支持参数
+			function format(str) { 
+	          //首先将日期分隔 ，获取到日期部分 和 时间部分
+	          var day = str.split(' ');
+	          //获取日期部分的年月日
+	          var days = day[0].split('-');
+	          //获取时间部分的 时分秒
+	          var mi = day[day.length - 1].split(':');
+	          //获取当前date类型日期
+	          var date = new Date();
+	          //给date赋值  年月日
+	          date.setUTCFullYear(days[0], days[1] - 1, days[2]);
+	          //给date赋值 时分秒  首先转换utc时区 ：+8
+	          date.setUTCHours(mi[0] - 8, mi[1], mi[2]);
+	          return date;
+			}
+			function padLeftZeroTwo(str) {
+			    return ('00' + str).substr(str.toString().length);
+			}
+			function padLeftZeroThree(str) {
+			    return ('000' + str).substr(str.toString().length);
+			}
+		</script>
+		<style>
+			body{background: #0055ab; text-align: center; color: #fff;}
+			.count_day{font-size: 0; margin-bottom: 23px;}
+			.count_day span{display: inline-block; width: 80px; height: 114px; line-height: 114px;font-size: 101px; font-weight: bold; font-family: arial; background: #fff; color: #0055ab; margin: 0 5px;}
+			.count_day i{font-size: 24px; vertical-align: bottom;}
+			
+			.count_time{font-size: 0; margin-bottom: 50px;}
+			.count_time span{display: inline-block; width: 30px; height: 42px; line-height: 42px;font-size: 39px; font-weight: bold; font-family: arial; background: #62b8ff; color: #fff; margin: 0 2px;}
+			.count_time i{font-size: 16px; vertical-align: bottom; margin: 0 10px 0 2px;}
+		</style>
+	</body>
+</html>
