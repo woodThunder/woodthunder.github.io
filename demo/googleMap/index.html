@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery.js"></script>
+		<style>
+			#map {height: 100%;}
+      		html, body {height: 100%;margin: 0;padding: 0;}
+		</style>
+	</head>
+	<body>
+		
+		<div id="map"></div>
+		<script src="https://ditu.google.cn/maps/api/js?key=AIzaSyDi65EGqrynCk6kniT7jQElQjUpmPHEMDs&language=zh-CN&sensor=true"></script>
+		<script>
+//			38.90200686432555,-77.02397435903549,a1200 14th Street Northwest
+			var map;
+			var historicalOverlay;
+			var uluru = {lat: 38.90200686432555, lng: -77.02397435903549}
+		    map = new google.maps.Map(document.getElementById('map'), {
+	            center: uluru,
+	            zoom: 8
+	        });
+	        var marker = new google.maps.Marker({position: uluru, map: map});
+	        var infowindow = new google.maps.InfoWindow({    
+                content : "你好",    
+                //坐标偏移量，一般不用修改    
+                pixelOffset : 0,    
+                position :  uluru  
+
+            });  
+            google.maps.event.addListener(marker, 'click', function() {    
+                infowindow.open(map, marker);    
+            });
+            var imageBounds = {
+			    north: 40.773941,
+			    south: 40.712216,
+			    east: -74.12544,
+			    west: -74.22655
+			  };
+			
+			  historicalOverlay = new google.maps.GroundOverlay(
+			      'https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+			      imageBounds);
+			  historicalOverlay.setMap(map);
+		</script>
+	</body>
+</html>
