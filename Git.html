@@ -42,6 +42,40 @@
 					//工作区提交到版本区：-a是add的缩写
 					//git commit －a －m '注释'
 				</pre>
+				<h4>分支</h4>
+				<pre class="brush: js;">
+					//git branch <本地分支名> 新建本地分支
+					//git checkout <本地分支名> 切换本地分支
+					//git checkout -b <本地分支名> 创建并切换本地分支
+						
+					//合拼分支（在master分支下）
+					//git merge <本地分支名> 本地分支名合并到master分支下
+						
+					//删除本地分支
+					//git branch -d <本地分支名>
+						
+					//删除远程分支
+					//git push origin -d <远程分支名>
+						
+					//查看分支
+					//git branch 查看本地分支
+					//git branch -r 查看远程分支
+					//git branch -a 查看所有分支
+					
+					//把远程分支的代码pull到本地分支
+					//git pull <远程主机名> <远程分支名>:<本地分支名>
+					//PS：push代码前最好先用pull更新本地代码
+					
+					//把本地分支代码push到远程分支
+					//git push <远程主机名> <本地分支名>:<远程分支名>
+					//PS：如果省略远程分支名，则表示将本地分支推送与之存在"追踪关系"的远程分支（通常两者同名），如果该远程分支不存在，则会被新建。
+					//PS：远程主机名一般为origin
+				</pre>
+				<h4>
+					学习资料
+					<code><a href="http://git.oschina.net/progit/" target="_blank">中文版git资料</a></code>
+					<code><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰git</a></code>
+				</h4>
 			</div>
 		</div>
 	</body>
