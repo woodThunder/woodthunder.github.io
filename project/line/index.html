@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollbooster@1.0.4/dist/scrollbooster.min.js"></script>
+    <script src="javascript/jcancas.js"></script>
+</head>
+<body>
+<style type="text/css">
+    *{ margin:0; padding: 0;}
+    html{
+        font-size: 13.333vw;
+    }
+    body{ overflow-x: hidden;}
+    .baby-chart{ position: relative; width:100%; height:6.1rem; overflow: hidden; }
+    .canvas-wrap{ position: relative; width:6.5rem; height:calc(6.1rem - 2px); border-bottom:2px
+    solid #9d6917; overflow: hidden; left:calc(50% + 1px); transform: translateX(-50%); -webkit-transform:
+            translateX(-50%);
+        z-index: 200;}
+    .canvas-wrap canvas,.canvas-box{ position: absolute; left:0; bottom:0;}
+    .canvas-tag{ position: absolute; font-size:0.12rem;}
+    /*左侧*/
+    .baby-chart-l{ position: absolute; width:6.5rem; height:100%; left:calc(50% - 1px); transform: translateX(-50%); -webkit-transform: translateX(-50%); border-left:2px solid #9d6917; z-index:100;}
+    .baby-chart-l span{ display: block; position: absolute; width:auto; left:0%; font-size:0.12rem; transform:translateX(-125%); -webkit-transform: translateX(-125%);}
+</style>
+    <div class="baby-chart">
+        <div class="baby-chart-l">
+
+        </div>
+        <div class="canvas-wrap" id="canvas-wrap">
+            <div class="canvas-box">
+                <canvas id="canvas" width="400" height="400" ></canvas>
+                <span class="canvas-tag canvas-tag1">90%</span>
+                <span class="canvas-tag canvas-tag2">60%</span>
+                <span class="canvas-tag canvas-tag3">30%</span>
+            </div>
+        </div>
+    </div>
+<script>
+    var targetCanvas=$("#canvas");
+    var targetBox=$(".canvas-box");
+
+
+    var paramArr_t=[],paramArr_c=[],paramArr_b=[];
+    //引用json
+    $.getJSON("json/BoyHeight.json",function(data){
+
+        //数据导入数组
+        for(var maxNum=0; maxNum<data.length; maxNum++){
+            paramArr_t.push(data[maxNum].value.max);
+        }
+
+        for(var aveNum=0; aveNum<data.length; aveNum++){
+            paramArr_c.push(data[aveNum].value.average);
+        }
+
+        for(var minNum=0; minNum<data.length; minNum++){
+            paramArr_b.push(data[minNum].value.min);
+        }
+
+        var paramXp=6;
+        var paramYp=4;
+        var paramX=paramArr_t.length;
+        var paramY=data[data.length-1].value.max;
+        var axisY=Math.ceil(paramY/paramYp);
+        var wrapHeight=$(".canvas-wrap").height();
+        var totleWidth=$(".canvas-wrap").width()/paramXp*paramX;
+        var totleHeight=$(".canvas-wrap").height()/paramYp*paramY/paramYp;
+
+        for(var i=0; i<axisY; i++){
+            $(".baby-chart-l").append("<span style='bottom:"+totleHeight/axisY*i+"px'>"+10*i+"</span>");
+        }
+        $(".baby-chart-l").height(totleHeight);
+        $(".baby-chart-l span").css({"height":totleHeight/axisY});
+        targetCanvas.attr("width",totleWidth);
+        targetCanvas.attr("height",totleHeight);
+        targetBox.css({"width":totleWidth,"height":totleHeight});
+
+
+        //画线区域
+        var drawline_area={
+            strokeStyle: '#000',
+            strokeWidth: 0
+        }
+        for(var i=0; i<paramArr_t.length; i++){
+            var line_i=i+1;
+            drawline_area["x"+line_i]=getNumberX(paramX,i);
+            drawline_area["y"+line_i]=getNumberY(paramY,paramArr_t[i]);
+        }
+        var countPara=paramArr_t.length-1;
+        for(var i=paramArr_t.length; i<paramArr_t.length*2; i++){
+            var line_i=i+1;
+            drawline_area["x"+line_i]=getNumberX(paramX,countPara);
+            drawline_area["y"+line_i]=getNumberY(paramY,paramArr_b[countPara]);
+            //console.log(paramX+","+countPara+","+paramY+","+paramArr_b[countPara]);
+            countPara--;
+        }
+        drawline_area["closed"]=true;
+        drawline_area["fillStyle"]='#f9eed7';
+        $('canvas').drawLine(drawline_area);
+
+        //画线------上
+        var drawline_top={
+            strokeStyle: '#f1d394',
+            strokeWidth: 1
+        }
+        for(var i=0; i<paramArr_t.length; i++){
+            var line_i=i+1;
+            drawline_top["x"+line_i]=getNumberX(paramX,i);
+            drawline_top["y"+line_i]=getNumberY(paramY,paramArr_t[i]);
+            $('canvas').drawLine(drawline_top);
+        }
+
+        //画线------下
+        var drawline_bottom={
+            strokeStyle: '#f1d394',
+            strokeWidth: 1
+        }
+        for(var i=0; i<paramArr_b.length; i++){
+            var line_i=i+1;
+            drawline_bottom["x"+line_i]=getNumberX(paramX,i);
+            drawline_bottom["y"+line_i]=getNumberY(paramY,paramArr_b[i]);
+            $('canvas').drawLine(drawline_bottom);
+        }
+
+        //画线------中
+        var drawline_center={
+            strokeStyle: '#f1d394',
+            strokeWidth: 1
+        }
+        for(var i=0; i<paramArr_c.length; i++){
+            var line_i=i+1;
+            drawline_center["x"+line_i]=getNumberX(paramX,i);
+            drawline_center["y"+line_i]=getNumberY(paramY,paramArr_c[i]);
+            $('canvas').drawLine(drawline_center);
+        }
+
+
+
+        //起始中心点
+        var centerPoint=totleHeight-getNumberY(paramY,paramArr_c[0]);
+        //起伏高度系数
+        var heightParam=totleHeight/(getNumberY(paramY,paramArr_b[0])-getNumberY(paramY,paramArr_t[paramArr_t.length-1]));
+
+
+        //设点x坐标
+        function getNumberX(param,num){
+            var finX=totleWidth/(param-1)*num;
+            return finX;
+        }
+        //设点y坐标
+        function getNumberY(param,num){
+            var finY=totleHeight/(param-1)*(param-num);
+            return finY;
+        }
+
+
+        //基数线条
+
+        //cos
+        for(var i=0; i<axisY; i++) {
+            var objLineBasex = {
+                strokeStyle: '#e7e7e7',
+                strokeWidth: 1,
+                x1: 0, y1: totleHeight - totleHeight / axisY * i + 10,
+                x2: totleWidth, y2: totleHeight - totleHeight / axisY * i
+            }
+            $('canvas').drawLine(objLineBasex);
+        }
+
+        //row
+        for(var i=0; i<paramX; i++) {
+            var objLineBasey = {
+                strokeStyle: '#e7e7e7',
+                strokeWidth: 1,
+                x1: (totleWidth - totleWidth / paramX * i)*2, y1: 0,
+                x2: (totleWidth - totleWidth / paramX * i)*2, y2: totleHeight
+            }
+            $('canvas').drawLine(objLineBasey);
+        }
+
+
+        //计算时间差
+        function getTime2Time($time1, $time2){
+            var time1 = arguments[0], time2 = arguments[1];
+            time1 = Date.parse(time1)/1000;
+            time2 = Date.parse(time2)/1000;
+            var time_ = time1 - time2;
+            return (time_/(3600*24)*-1);
+        }
+
+
+        //获取当前日期
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var seperator2 = ":";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            return currentdate;
+        }
+
+        //用户标点------注册日期
+        var beginDate='2018-04-31';
+
+        //计算天数差
+        var diffDate=Math.ceil(getTime2Time(beginDate, '2019-12-31'));
+
+        //今天线
+        var diffNow=Math.ceil(getTime2Time(beginDate, getNowFormatDate()));
+        $('canvas').drawLine({
+            strokeStyle: '#edd196',
+            strokeWidth: 2,
+            strokeDash: [5],
+            strokeDashOffset: 0,
+            x1: getNumberX(diffDate,diffNow), y1: 0,
+            x2: getNumberX(diffDate,diffNow), y2: totleHeight
+        });
+
+        //用户标点------数据
+        var dataInput=[
+            {
+                "value":50.2,
+                "time":"2018-5-31"
+            },
+            {
+                "value":51.3,
+                "time":"2018-6-1"
+            },
+            {
+                "value":52.4,
+                "time":"2018-6-2"
+            },
+            {
+                "value":54.6,
+                "time":"2018-6-3"
+            },
+            {
+                "value":56.1,
+                "time":"2018-6-4"
+            },
+            {
+                "value":50.8,
+                "time":"2018-6-5"
+            }
+        ]
+        //用户标点------公共样式
+        var project={
+            strokeStyle: '#000000',
+            strokeWidth: 1
+        }
+        //用户标点------画线
+        for(var i=0; i<dataInput.length; i++){
+            var diff=Math.ceil(getTime2Time(beginDate, dataInput[i].time));
+            var line_i=i+1;
+            project["x"+line_i]=getNumberX(diffDate,diff);
+            project["y"+line_i]=getNumberY(paramY,dataInput[i].value);
+            $('canvas').drawLine(project);
+        }
+        //用户标点------描点
+        for(var i=0; i<dataInput.length; i++){
+            var diff=Math.ceil(getTime2Time(beginDate, dataInput[i].time));
+            $('canvas').drawArc({
+                strokeStyle: '#e8c26f',
+                strokeWidth: 2,
+                bringToFront: true,
+                fillStyle: '#ffffff',
+                x:  getNumberX(diffDate,diff), y: getNumberY(paramY,dataInput[i].value),
+                radius: 3
+            });
+        }
+
+
+
+        (function () {
+            var scrollEl = document.querySelector('.canvas-box')
+            var scr = new ScrollBooster({
+                viewport: document.querySelector('#canvas-wrap'),
+                emulateScroll: true,
+                mode: 'x',
+                bounce:false,
+                onUpdate: function (data) {
+                    var ratio=Math.floor(data.position.x/(totleWidth/paramX)+paramXp);
+                    var spanWidth=$(".canvas-tag1").width();
+                    var spanHeight=$(".canvas-tag1").height();
+                    scrollEl.style.transform = 'translate(' + -data.position.x + 'px)';
+
+                    $(".canvas-box,.baby-chart-l").css("bottom",data.position.x*-totleHeight/totleWidth/heightParam-centerPoint+wrapHeight/2);
+                    $(".canvas-tag1").css({"left":$(".canvas-wrap").width()-spanWidth-$(".canvas-box").position().left,"bottom":totleHeight*(paramArr_t[ratio]/paramY)-spanHeight/2});
+                    $(".canvas-tag2").css({"left":$(".canvas-wrap").width()-spanWidth-$(".canvas-box").position().left,"bottom":totleHeight*(paramArr_c[ratio]/paramY)-spanHeight/2});
+                    $(".canvas-tag3").css({"left":$(".canvas-wrap").width()-spanWidth-$(".canvas-box").position().left,"bottom":totleHeight*(paramArr_b[ratio]/paramY)-spanHeight/2});
+                }
+            })
+            scr.setPosition({
+                x: 0
+            })
+        })()
+
+    })
+
+
+
+</script>
+</body>
+</html>

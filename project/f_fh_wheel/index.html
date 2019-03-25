@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>大转盘</title>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no" name="viewport" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script type="text/javascript" src="js/awardRotate.js"></script>
+		<script type="text/javascript" src="js/wheel.js"></script>
+	</head>
+
+	<body style="background-image: url(images/bg.jpg);">
+		<!--<a href="" class="wheel"><img src="images/wheel.gif"/> </a>-->
+		<div class="point">我的积分：<span class="num">50</span></div>
+		<img src="images/1.png" id="milk-img" style="display:none;" />
+		<img src="images/2.png" id="sorry-img" style="display:none;" />
+		<div class="banner">
+			<div class="light"></div>
+			<div class="turnplate">
+				<canvas class="item" id="wheelcanvas" width="640px" height="640px"></canvas>
+				<img class="pointer" src="images/turnplate-pointer.png" />
+			</div>
+		</div>
+		<div class="text">
+			<div class="swiper-container" style="height: 0.5rem;">
+				<div class="swiper-wrapper">
+				    <div class="swiper-slide">李玉坤抽中了飞鹤奶粉</div>
+				    <div class="swiper-slide">李玉坤抽中了飞鹤奶粉</div>
+				    <div class="swiper-slide">李玉坤抽中了飞鹤奶粉</div>
+				</div>
+			</div>
+		</div>
+		<div class="btn">
+			<img src="images/wheel_btn01.png" class="wheel_btn01"/>
+			<img src="images/wheel_btn02.png" class="wheel_btn02"/>
+		</div>
+		<div class="layer">
+			<!--未中奖状态弹窗-->
+			<div class="notwin_layer">
+				<h1><b>就差一点点呦~</b></h1>
+				<div class="notwin_wrap">
+					<p>别放弃<br/>更多大奖在等你哦</p>
+					<!--<div class="notwin_wrap_img"><img src="images/notwin_wrap_img.png" /></div>-->
+				</div>
+				<img src="images/success_btn.png" class="notwin_btn" />
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+			
+			<!--星愿不足弹窗-->
+			<div class="xy_layer">
+				<h1><b>您的星愿不足</b></h1>
+				<div class="xy_wrap">
+					<p>连续签到可快速提升<br/>星愿值哦</p>
+				</div>
+				<img src="images/submit.png" class="xy_btn" />
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+			
+			<!--获取奖品弹窗-->
+			<div class="win_layer">
+				<h1><b>恭喜您!</b></h1>
+				<div class="win_wrap">
+					<div class="win_wrap_img"><img src="images/1.png" /></div>
+					<p>恭喜您获得飞鹤奶粉1份</p>
+				</div>
+				<img src="images/win_btn.png" class="win_btn" />
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+			
+			<!--完善信息弹窗-->
+			<div class="info_layer">
+				<h1><b>完善领奖信息</b></h1>
+				<div class="info_wrap">
+					<input type="text" placeholder="姓名" />
+					<input type="text" placeholder="手机" />
+					<input type="text" placeholder="地址" />
+				</div>
+				<img src="images/win_btn.png" class="info_btn" />
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+			
+			<!--领取成功弹窗-->
+			<div class="success_layer">
+				<h1><b>领取成功</b></h1>
+				<img src="images/success_btn.png" class="success_btn" />
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+			
+			
+			<div class="prize_layer">
+				<h1>我的奖品</h1>
+				<div class="no_prize">
+					<img src="images/noprize_icon.png" class="noprize_icon" />
+					<p>暂时还没获得奖品<br/>快去抽奖吧</p>
+				</div>
+				<div class="have_prize">
+					<ul>
+						<li>
+							<div class="have_prize_img"><img src="images/1.png" /></div>
+							<dl class="have_prize_wrap">
+								<dt>飞鹤奶粉</dt> 
+								<dd>2018-09-12  15:41:14</dd>
+							</dl>
+							<a href="" class="have_prize_status">成功</a>
+						</li>
+						<li>
+							<div class="have_prize_img"><img src="images/1.png" /></div>
+							<dl class="have_prize_wrap">
+								<dt>飞鹤奶粉</dt> 
+								<dd>2018-09-12  15:41:14</dd>
+							</dl>
+							<a href="" class="have_prize_status">前往领奖</a>
+						</li>
+						<li>
+							<div class="have_prize_img"><img src="images/1.png" /></div>
+							<dl class="have_prize_wrap">
+								<dt>飞鹤奶粉</dt> 
+								<dd>2018-09-12  15:41:14</dd>
+							</dl>
+							<a href="" class="have_prize_status">成功</a>
+						</li>
+						<li>
+							<div class="have_prize_img"><img src="images/1.png" /></div>
+							<dl class="have_prize_wrap">
+								<dt>飞鹤奶粉</dt> 
+								<dd>2018-09-12  15:41:14</dd>
+							</dl>
+							<a href="" class="have_prize_status">前往领奖</a>
+						</li>
+						<li>
+							<div class="have_prize_img"><img src="images/1.png" /></div>
+							<dl class="have_prize_wrap">
+								<dt>飞鹤奶粉</dt> 
+								<dd>2018-09-12  15:41:14</dd>
+							</dl>
+							<a href="" class="have_prize_status">成功</a>
+						</li>
+						<li>
+							<div class="have_prize_img"><img src="images/1.png" /></div>
+							<dl class="have_prize_wrap">
+								<dt>飞鹤奶粉</dt> 
+								<dd>2018-09-12  15:41:14</dd>
+							</dl>
+							<a href="" class="have_prize_status">前往领奖</a>
+						</li>
+					</ul>
+				</div>
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+			<div class="rule_layer">
+				<h1><img src="images/rule_tit.png"/></h1>
+				<div class="rule_wrap">
+					<p>
+					1、本活动长期有效，凡星妈会会员均可参与<br/>
+					2、每次抽奖将消耗20星币<br/>
+					3、获得虚拟奖励即时发放;实物奖励将于活动结束后10个工作日内发放完毕<br/>
+					4、获得实物奖励必须填写地址，地址填写后不能修改，不填写地址视为放弃奖励<br/>
+					5、您通过抽奖页面左下角的“”<br/>
+					5、凡参与本活动的用户，即视为接受活动所有规则<br/>
+					6、本活动最终解释方归飞鹤星妈会所有。
+					</p>
+				</div>
+				<div class="line"></div>
+				<div class="close"><img src="images/close.png"/></div>
+			</div>
+		</div>
+	</body>
+</html>

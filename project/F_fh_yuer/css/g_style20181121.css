@@ -1,0 +1,85 @@
+html{font-size: 8.052vw;}
+body, html {position: fixed;top: 0px;bottom: 0px;　width: 100%;height: 100%;}
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+.fl{float: left;}
+.fr{float: right;}
+section{width: 100vw;height: 100vh;position: relative;overflow: hidden;}
+.video{position: absolute;width: 100%;height: 100%;background: #000;z-index: 1;}
+.video video{ position: absolute; width: 100%; height: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); }
+.content{position: absolute;width: 100%;height: 100%;z-index: 2;background: rgba(0,0,0,0.4);}
+.content h1{font-weight: normal;font-size: 0.52rem;color: #fff;text-align: center;top: 0.7rem;left: 0;position: absolute;width: 100%;}
+.content .play-btn{ display: block; position: absolute; width: 1.51rem; height: 1.65rem; background: url('../images/play_btn_151x165.png') no-repeat center center; background-size: cover; border: none; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); }
+.content h2{font-size: 0.52rem;color: #fff;width: calc(100% - 0.46rem);padding-left: 0.46rem;font-weight: normal;left: 0;bottom: 2.25rem;position: absolute;}
+.content .sidebar{position: absolute;right: 0.15rem;top: 50%;margin-top: -2.27rem;width: 2rem;color: #fff;text-align: center;font-size: 0.34rem;}
+.content .sidebar img{width: 1.65rem;}
+.content .sidebar .follow{font-size: 0.3rem;}
+.content .sidebar .col,.content .sidebar .commit,.content .sidebar .forward{margin-top: 0.4rem;}
+.content .sidebar .col .col_on{display: none;}
+.content .sidebar .col.on .col_on{display: inline-block;}
+.content .sidebar .col.on .no_col{display: none;}
+.content .sidebar em{font-size: 0.24rem;margin-left: 1px;}
+.bottom-box.on{height: 100vh;z-index: 4;position: relative;}
+.bottom{ position: fixed; bottom: 0; left: 0; width: calc(100% - 0.92rem); font-size: 0.52rem; background: rgba(197, 165, 88, 0.8); z-index: 4; padding:0 0.46rem; color: rgba(255,255,255,0.5); display: block; }
+.bottom-box.on .bottom .title p{display: none;}
+.bottom a.send{ position: absolute; right: 0.46rem; top: 50%; transform: translateY(-50%); -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); width: 1.5rem; height: 0.82rem; line-height: 0.82rem; text-align: center; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.5); border-radius:0.82rem; -webkit-border-radius:0.82rem; -moz-border-radius:0.82rem; -ms-border-radius:0.82rem; -o-border-radius:0.82rem; font-size: 0.45rem;z-index: 4;}
+.bottom .title{height: 1.68rem;line-height: 1.68rem;position: relative;}
+.bottom .title p{padding-right: 2.5rem;}
+.bottom .title .choice{padding-right: 2.5rem;color: #fff;font-size: 0.45rem;}
+.bottom .title .choice dl{position: relative;}
+.bottom .title .choice dl:nth-of-type(1){margin-right: 0.73rem;}
+.bottom .title .choice dd{padding-left: 0.65rem;}
+.bottom .title .choice dt{position: absolute;width: 0.50rem;height: 0.50rem;background: url('../images/checkbox.png') no-repeat center center; background-size: cover;left: 0;top: 50%;margin-top: -0.25rem;}
+.bottom .title .choice dl.on dt{background-image: url('../images/checkbox_on.png');}
+.bottom .title .choice{display: none;}
+.bottom-box.on .bottom  .title .choice{display: block;}
+.bottom .textarea{padding-bottom: 0.3rem;display: none;}
+.bottom textarea{ background: #dcc490; border: none; width: calc(100% - 1.6rem); height: calc(4.04rem - 0.86rem); padding: 0.43rem 0.8rem; border-radius: 0.25rem ; -webkit-border-radius: 0.25rem ; -moz-border-radius: 0.25rem ; -ms-border-radius: 0.25rem ; -o-border-radius: 0.25rem ; }
+.bottom-box.on .textarea{display: block;}
+.main.on .content{background: none;}
+.main.on .play-btn{display: none;}
+
+.commit-list{ position: absolute; left: 0; bottom: 0; width: calc(100% - 0.8rem); height: 70vh; background: rgba(248, 234, 210, 0.9); border-top-left-radius: 10px; border-top-right-radius: 10px; left: 0; bottom: 0; z-index: 3; padding: 0 0.4rem; display: none;}
+.commit-list.on{ display: block;}
+.commit-list .title{position: relative;}
+.commit-list .title h1{text-align: center;color: rgba(107, 107, 107, 0.7);height: 1.18rem;line-height: 1.18rem;font-weight: normal;}
+.commit-list .title .close-btn{border: none;background: url(../images/close_btn.png) no-repeat center center;background-size: 0.33rem 0.34rem;width: 0.5rem;height: 0.5rem;position: absolute;right: 0.2rem; top: 0.4rem;}
+.commit-list .messages{padding-left: 1.5rem;width: calc(100% - 1.5rem);}
+.commit-list .messages-box{border-top: 1px solid #dfd2bd;border-bottom: 1px solid #dfd2bd;padding: 0.45rem 0 0.34rem;}
+.commit-list li{position: relative;}
+.commit-list li .userPic{position: absolute;display: block;width: 0.98rem;height: 0.98rem;left: 0.13rem;top: 0.38rem;}
+.commit-list li .userPic img{width: 100%;height: 100%;}
+.commit-list .messages-box a{color: #6b6b6b;font-size: 0.36rem;overflow: hidden;}
+.commit-list li .messages-box a em{ background: #f87b68;display: inline-block;vertical-align: middle; margin-left: 0.17rem;  color: #fff; transform: scale(0.9); -webkit-transform: scale(0.9); -moz-transform: scale(0.9); -ms-transform: scale(0.9); -o-transform: scale(0.9); }
+.commit-list li .messages-box a span{float: left;}
+.commit-list li.on .messages-box a em{background: #4988d7;}
+.commit-list .messages-box a em{font-size: 0.18rem;padding: 0.06rem 0.14rem;}
+.commit-list .messages-box h4{color: #6b6b6b;font-weight: normal;font-size: 0.45rem;margin: 0.2rem 0px;}
+.commit-list .messages-box span{color: rgba(107,107,107, 0.7);font-size: 0.36rem;}
+.commit-list .messages-text{width: 8.06rem;}
+.commit-list .messages-text > *{display: block;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.commit-list .messages-box .zan{text-align: center;margin-top: 0.28rem;}
+.commit-list .messages-box .zan em{display: block;width: 0.62rem;height: 0.57rem;background: url('../images/zan.png') no-repeat center center;background-size: cover;margin:0 auto 0.16rem;}
+.commit-list .messages-box .zan p{font-size: 0.34rem;color: rgba(107, 107, 107, 0.7);line-height: 14px;}
+.commit-list .list-box{overflow-y: auto;height: calc(70vh - 1.18rem);height: -webkit-calc(70vh - 1.18rem);height: -ms-calc(70vh - 1.18rem);height: -o-calc(70vh - 1.18rem);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

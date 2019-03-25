@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--[if lt IE 7]><html class="ie ie6 lt8 lt9 lt10"><![endif]-->
+<!--[if IE 7]><html class="ie ie7 lt8 lt9 lt10"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 lt9 lt10"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 lt10"><![endif]-->
+<!--[if (gt IE 9) | !(IE)]><!-->
+<html>
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="author" content="hongru" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />
+<title>回归自然 探寻飞鹤臻稚纯净之旅</title>
+<link rel="Shortcut Icon" href="favicon.ico">
+<link rel="Bookmark" href="favicon.ico">
+<meta name="apple-mobile-web-app-title" content="回归自然 探寻飞鹤臻稚纯净之旅">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="apple-touch-icon-precomposed" href="icon.png"><meta property="og:type" content="website" />
+
+
+<link href="css/swiper-3.4.2.min.css" rel="stylesheet">
+<!--<link href="https://cdn.bootcss.com/Swiper/2.7.6/idangerous.swiper.min.css" rel="stylesheet">-->
+<link type="text/css" rel="stylesheet" href="css/swiper.animate.min.css">
+<link type="text/css" rel="stylesheet" href="css/common.css">
+<link rel="prefetch" href="flash/music.mp3" />
+<script>if (/*@cc_on!@*/false && document.documentMode === 10) document.documentElement.className += ' ie10';</script>
+<script>if (/*@cc_on!@*/false && document.documentMode === 11) document.documentElement.className += ' ie11';</script>
+
+<!-- 添加IE10+Class -->
+<!--[if lt IE 9]>
+	<script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="javascript/jquery.min.js"></script>
+<script src="javascript/swiper-3.4.2.jquery.min.js"></script>
+<script src="javascript/hammer.js"></script>
+<script src="javascript/imagesloaded.js"></script>
+<script src="javascript/swiper.animate1.0.3.min.js"></script>
+<!--<script src="javascript/weixin.js"></script>-->
+<!--<script src="javascript/JsUtil.js"></script>-->
+<script src="javascript/index.js"></script>
+<link type="text/css" rel="stylesheet" href="css/x_index.css">
+</head>
+<body>
+<div class="container" id="container">
+
+	<div class="videobox" id="videobox">
+		<video id="video" src="flash/video.mp4" preload="true" autoplay="autoplay" loop="loop" playsinline="true" x-webkit-airplay="true" webkit-playsinline="true" x5-video-player-type="h5" x5-videoplayer-fullscreen="true"></video>
+		<img src="images/arrow2.png" class="arrow" />
+		<img src="images/arrow2.png" class="arrow arrow1" />
+	</div>	
+	
+	<div id="audio_btn" class="video_exist" style="display: block;">
+        <audio loop="loop" src="flash/music.mp3" id="media" autoplay></audio>
+    </div>
+    <div class="loading">
+    	<!--<div class="x_circle"></div>-->
+    	<div class="x_circle">
+	        <div id="preloader6">
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	        <div class="x_num"><span>0</span>%</div>
+	    </div>
+    	
+    </div>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<!--第一屏-->
+			<div class="swiper-slide swiper-slideout">
+				<img src="images/logo.png" class="logo ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+				<img src="images/ziyi.png" class="ziyi ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/shugan.png" class="shugan ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1s"/>
+				
+				<div class="shuye_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s">
+					<img src="images/shuye.png" class="shuye ani infinite" swiper-animate-effect="circle" swiper-animate-duration="2s" swiper-animate-delay="1.8s"/>
+				</div>
+				
+				
+				<img src="images/zhenzhi.png" class="zhenzhi ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2s"/>
+				<img src="images/huigui.png" class="huigui ani" swiper-animate-effect="zoomInBig" swiper-animate-duration="1.5s" swiper-animate-delay="2.2s" />
+				<img src="images/chunjing.png" class="chunjing ani" swiper-animate-effect="zoomInBig" swiper-animate-duration="1.5s" swiper-animate-delay="2.2s" />
+				
+				<div class="sshuye_box ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="2.5s" >
+					<img src="images/sshuye.png" class="sshuye ani infinite" swiper-animate-effect="rotateX" swiper-animate-duration="3s" swiper-animate-delay="2.4s" />
+				</div>
+				<div class="bshuye_box ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="2.5s" >
+					<img src="images/bshuye.png" class="bshuye ani infinite" swiper-animate-effect="rotateX" swiper-animate-duration="3s" swiper-animate-delay="2.5s" />
+				</div>
+				
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<img src="images/arrow2.png" class="arrow" />
+				<img src="images/arrow2.png" class="arrow arrow1" />
+			</div>
+			
+			<!--第二屏-->
+			
+			<div class="swiper-slide swiper-slideout swiper-no-swiping">
+				<img src="images/logo.png" class="logo ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.6s" swiper-animate-delay="0.2s"/>
+				<img src="images/zhenzhi2.png" class="zhenzhi2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.2s" />
+				
+				<img src="images/huigui.png" class="two2 ani" swiper-animate-effect="zoomInBig" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/chunjing.png" class="two3 ani" swiper-animate-effect="zoomInBig" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<div class="two4_box ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" >
+					<img src="images/sshuye.png" class="two4 ani infinite" swiper-animate-effect="rotateX" swiper-animate-duration="1.8s" swiper-animate-delay="0.5s" />
+				</div>
+				<div class="two5_box ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" >
+					<img src="images/bshuye.png" class="two5 ani infinite" swiper-animate-effect="rotateX" swiper-animate-duration="1.8s" swiper-animate-delay="0.5s" />
+				</div>
+				<div class="sd_box">
+					<img src="images/two7.png" class="sd2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.8s"/>
+					<img src="images/two6.png" class="sd1 ani" swiper-animate-effect="zoomInBig" swiper-animate-duration="0.6s" swiper-animate-delay="1.6s"/>
+					<img src="images/sd3.png" class="sd3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="1.8s"/>
+					<img src="images/sd4.png" class="sd4 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2.2s"/>
+					<img src="images/sd5.png" class="sd5 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2.2s"/>
+					<img src="images/sd6.png" class="sd6 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="3.2s"/>
+					<img src="images/sd7.png" class="sd7 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2.6s"/>
+					<img src="images/sd8.png" class="sd8 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2.8s"/>
+					<img src="images/sd9.png" class="sd9 ani" swiper-animate-effect="bounceIn" swiper-animate-duration="0.6s" swiper-animate-delay="3.2s"/>
+					<div class="sd9_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3s">
+						<img src="images/sd9.png" class="sd9 sd9_1 ani" swiper-animate-effect="bounceHide" swiper-animate-duration="1.2s" swiper-animate-delay="3s"/>
+					</div>
+					<img src="images/zhenzhi5_img.png" class="sd10 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="2.6s"/>
+					<p class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.6s" swiper-animate-delay="3s">点击了解详情</p>
+				</div>
+				
+				
+				<img src="images/xuanchuan3.png" class="xuanchuan2 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.6s" swiper-animate-delay="3s" />
+				<div class="xuanchuan2_icon_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="3.5s">
+					<img src="images/xuanchuan2_icon.png" class="xuanchuan2_icon ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="0.6s" swiper-animate-delay="5s" />
+				</div>
+				<!--<img src="images/chanpin2.png" class="chanpin2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.6s" swiper-animate-delay="2s" />-->
+				<!--<div class="chanpin2_icon_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.6s" swiper-animate-delay="3.5s">-->
+					<!--<img src="images/chanpin2_icon.png" class="chanpin2_icon ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="0.6s" swiper-animate-delay="5s"  />-->
+				<!--</div>-->
+				
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<!--<img src="images/arrow2.png" class="arrow" />
+				<img src="images/arrow2.png" class="arrow arrow1" />-->
+			</div>
+			
+			<!--<div class="swiper-slide swiper-slideout swiper-video" id="videodiv" data-swiper-autoplay="8000">
+							
+				
+				<img src="images/arrow2.png" class="arrow" />
+				<img src="images/arrow2.png" class="arrow arrow1" />
+			</div>-->
+			
+			<!--第三屏/添加-->
+			
+			<div class="swiper-slide swiper-slideout" id="swiper-video-next">
+				<img src="images/three1.png" class="thadd1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/three2.png" class="thadd2" />
+				<img src="images/three9.jpg" class="thadd10 ani infinite" swiper-animate-effect="rotate360" swiper-animate-duration="1s" swiper-animate-delay="1s" />
+				<img src="images/three3.png" class="thadd3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1s" />
+				<img src="images/three4.png" class="thadd4 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" />
+				<img src="images/three5.png" class="thadd5 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="1.7s" />
+				<img src="images/three6.png" class="thadd6 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.1s" />
+				<img src="images/three7.png" class="thadd7 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="2.4s" />
+				<img src="images/three8.png" class="thadd8 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.7s" />
+				<img src="images/zhenzhi5_img.png" class="thadd9 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>
+			
+			<!--第三屏-->
+			
+			<div class="swiper-slide swiper-slideout" id="hammer">
+				<img src="images/kexue3.png" class="kexue3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<div class="three_bg_box">
+					<img src="images/three_bg.png" class="three_bg ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.8s" />
+				</div>
+				<div class="three ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s">
+					<div class="three1 an i infinite" swiper-animate-effect="t1" swiper-animate-duration="5s" swiper-animate-delay="2.3s">
+						<img src="images/bg3_icon.png" class="bg3_icon1 ani infinite" swiper-animate-effect="opa" swiper-animate-duration="1s"/>
+						<img src="images/anji3.png" class="anji3 "/>
+						<img src="images/anji3_text.png" class="anji3_text " />
+					</div>
+					
+					<div class="three2 an i infinite" swiper-animate-effect="t2" swiper-animate-duration="5s" swiper-animate-delay="2.3s">
+						<img src="images/bg3_icon.png" class="bg3_icon2 ani infinite" swiper-animate-effect="opa" swiper-animate-duration="1s"  />
+						<img src="images/shengniu3.png" class="shengniu3 " />
+						<img src="images/shengniu3_text.png" class="shengniu3_text " />
+					</div>
+					
+					<div class="three3 an i infinite" swiper-animate-effect="t3" swiper-animate-duration="5s" swiper-animate-delay="2.3s">
+						<img src="images/bg3_icon.png" class="bg3_icon3 ani infinite" swiper-animate-effect="opa" swiper-animate-duration="1s" />
+						<img src="images/dha3.png" class="dha3 "  />
+						<img src="images/dha3_text.png" class="dha3_text " />
+					</div>
+				</div>
+				<!--<img src="images/huadong.png" class="huadong ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s"/>-->
+				<img src="images/hammer_icon01.png" class="hammer_icon01 ani" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay="1.8s"/>
+				<img src="images/hammer_icon02.png" class="hammer_icon02 ani" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay="1.8s"/>
+				<img src="images/hammer_icon03.png" class="hammer_icon03 ani" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay="1.8s"/>
+				<img src="images/hammer_icon04.png" class="hammer_icon04 ani" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay="1.8s"/>
+				<img src="images/hammer_icon05.png" class="hammer_icon05 ani" swiper-animate-effect="" swiper-animate-duration="1s" swiper-animate-delay="1.8s"/>
+				<div class="zz"></div>
+				<div class="xlayer">
+					<img src="images/close.png" class="close" />
+					<div class="xlayer_list xlayer1">
+						<img src="images/bixu4.png" class="bixu4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+						<img src="images/bixu4_bg1.png" class="bixu4_bg1 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s" />
+						<img src="images/zhenzhi4_tit.png" class="zhenzhi4_tit ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" />
+						
+						<div class="zhenzhi4_img_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s">
+							<img src="images/zhenzhi4_img.png" class="zhenzhi4_img"/>
+							<div class="zhezhao ani" swiper-animate-effect="spin120" swiper-animate-duration="1.6s" swiper-animate-delay="2.3s"></div>
+			                <div class="zhezhao2 ani function" swiper-animate-effect="second-half-hide" swiper-animate-duration="0.001s" swiper-animate-delay="3.1s"></div>
+			                <div class="yuanxing ani function" swiper-animate-effect="second-half-show" swiper-animate-duration="0.001s" swiper-animate-delay="3.1s"></div>
+						</div>
+						
+						<img src="images/zhongxing1.png" class="zhongxing1 ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s" />
+						<img src="images/zhenzhi4_line.png" class="zhenzhi4_line ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="2s" />
+						<div class="zhenzhi4_anji_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.5s" >
+							<img src="images/zhenzhi4_anji.png" class="zhenzhi4_anji ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="2.5s"  />
+						</div>
+						<img src="images/zhenzhi4_text.png" class="zhenzhi4_text ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3.5s" />
+						
+						
+						<img src="images/bixu4_bg2.png" class="bixu4_bg2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.6s" />
+						<img src="images/muru4_tit.png" class="muru4_tit ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" />
+						
+						<div class="muru4_img_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s">
+							<img src="images/muru4_img.png" class="muru4_img"/>
+							<div class="zhezhao ani" swiper-animate-effect="spin130" swiper-animate-duration="1.6s" swiper-animate-delay="2.3s"></div>
+			                <div class="zhezhao2 ani function" swiper-animate-effect="second-half-hide" swiper-animate-duration="0.001s" swiper-animate-delay="3.1s"></div>
+			                <div class="yuanxing yuanxing1 ani function" swiper-animate-effect="second-half-show" swiper-animate-duration="0.001s" swiper-animate-delay="3.1s"></div>
+						</div>
+						
+						
+						<!--<img src="images/muru4_img.png" class="muru4_img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="5.5s"  />-->
+						<img src="images/zhongxing2.png" class="zhongxing2 ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s" />
+						
+						<img src="images/zhenzhi4_line.png" class="muru4_line ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2s"  />
+						<div class="muru4_anji_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.5s">
+							<img src="images/muru4_anji.png" class="muru4_anji ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="2.5s" />
+						</div>
+						
+						<img src="images/muru4_text.png" class="muru4_text ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3.5s" />
+					</div>
+					
+					<div class="xlayer_list xlayer2">
+						<img src="images/shengniu6_tit.png" class="shengniu6_tit ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+						<img src="images/shengniu6_img1.png" class="shengniu6_img1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" />
+						
+						<div class="six_icon1_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s">
+							<img src="images/six_icon.png" class="six_icon1 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+						</div>
+						
+						<div class="six_icon2_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s">
+							<img src="images/six_icon2.png" class="six_icon2 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+						</div>
+						
+						<img src="images/shengniu6_text1.png" class="shengniu6_text1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.5s" />
+						
+						
+						<img src="images/shengniu6_img2.png" class="shengniu6_img2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" />
+						
+						<div class="six_icon3_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s">
+							<img src="images/six_icon3.png" class="six_icon3 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+						</div>
+						<div class="six_icon4_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s">
+							<img src="images/six_icon4.png" class="six_icon4 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+						</div>
+						
+						<img src="images/shengniu6_text2.png" class="shengniu6_text2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.5s" />
+					</div>
+					<div class="xlayer_list xlayer3">
+						<img src="images/dha5_tit.png" class="dha5_tit ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s"/>
+						<img src="images/zhenzhi5_img.png" class="zhenzhi5_img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s" />
+						<img src="images/dha5_bg.png" class="dha5_bg1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s" />
+						<img src="images/zhenzhi5_tit.png" class="zhenzhi5_tit ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s"  />
+						<img src="images/dha5_icon1.png" class="dha5_icon1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="3.3s"  />
+						<div class="dha5_icon2_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3.3s">
+							<img src="images/dha5_icon2.png" class="dha5_icon2 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="3.3s"  />
+						</div>
+						<div class="dha5_icon3_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3.3s">
+							<img src="images/dha5_icon3.png" class="dha5_icon3 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="3.3s"  />
+						</div>
+						<img src="images/zhenzhi5_text.png" class="zhenzhi5_text ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="4.3s"  />
+						
+						<img src="images/muru5_img.png" class="muru5_img ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.3s"/>
+						<img src="images/dha5_bg.png" class="dha5_bg2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s" />
+						<img src="images/muru5_tit.png" class="murui5_tit ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+						<img src="images/dha5_icon1.png" class="dha5_icon1 dha5_icon1_1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="3.3s" />
+						<div class="dha5_icon2_box dha5_icon2_1_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3.3s">
+							<img src="images/dha5_icon2.png" class="dha5_icon2 dha5_icon2_1 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="3.3s" />
+						</div>
+						<div class="dha5_icon3_box dha5_icon3_1_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="3.3s">
+							<img src="images/dha5_icon3.png" class="dha5_icon3 dha5_icon3_1 ani infinite" swiper-animate-effect="bounceCircle" swiper-animate-duration="1s" swiper-animate-delay="3.3s"  />
+						</div>
+						<img src="images/muru5_text.png" class="muru5_text ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="4.3s" />
+					</div>
+				</div>
+				
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>
+			
+			
+			
+			<!--第七屏-->
+			
+			<div class="swiper-slide swiper-slideout" data-swiper-autoplay="8000">
+				<img src="images/seven1.png" class="seven1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/seven2.png" class="seven2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="4.8s" />
+				<img src="images/seven3.png" class="seven3 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s" />
+				<img src="images/seven4.png" class="seven4 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s" />
+				<img src="images/seven5.png" class="seven5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.3s" />
+				<img src="images/seven6.png" class="seven6 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.8s" />
+				<img src="images/seven7.png" class="seven7 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="3.3s" />
+				<img src="images/seven8.png" class="seven8 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="3.8s" />
+				<img src="images/seven9.png" class="seven9 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="4.3s" />
+				<img src="images/seven10.png" class="seven10 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1" swiper-animate-delay="5.3s"/>
+				<img src="images/seven11.png" class="seven11 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1" swiper-animate-delay="5.8s" />
+				
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>
+			
+			<!--第八屏-->
+			
+			<div class="swiper-slide swiper-slideout" data-swiper-autoplay="9000">
+				<img src="images/eight1.png" class="eight1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/eight2.png" class="eight2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s" />
+				<div class="eight_icon1_box ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s">
+					<img src="images/eight_icon1.png" class="eight_icon1 ani" swiper-animate-effect="flight" swiper-animate-duration="3s" swiper-animate-delay="2.8s" />
+					<img src="images/eight_icon2.png" class="eight_icon2 ani" swiper-animate-effect="flight" swiper-animate-duration="3s" swiper-animate-delay="2.8s" />
+				</div>
+				<img src="images/eight_icon3.png" class="eight_icon3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2.8s" />
+				<img src="images/eight_icon4.png" class="eight_icon4 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+				<img src="images/eight3.png" class="eight3 ani" swiper-animate-effect="zoomInBig" swiper-animate-duration="1.5s" swiper-animate-delay="3.5s" />
+				<img src="images/eight4.png" class="eight4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="3.8s" />
+				<img src="images/eight5.png" class="eight5 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="4.3s" />
+				<img src="images/eight6.png" class="eight6 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="4.8s" />
+				<img src="images/eight7.png" class="eight7 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="5.3s" />
+				<img src="images/eight8.png" class="eight8 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="5.8s" />
+				<img src="images/eight9.png" class="eight9 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="6.3s" />
+				
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>
+			
+			<!--第九屏-->
+			
+			<div class="swiper-slide swiper-slideout">
+				<img src="images/nine1.png" class="nine1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/nine2.png" class="nine2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s" />
+				<img src="images/nine3.png" class="nine3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s" />
+				<img src="images/nine4.png" class="nine4 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s" />
+				<img src="images/nine5.png" class="nine5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="2.3s" />
+				<img src="images/nine6.png" class="nine6 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="2.8s" />
+				<img src="images/nine7.png" class="nine7 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="3.3s" />
+				<img src="images/nine8.png" class="nine8 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="3.8s" />
+				
+				<!--<img src="images/arrow.svg" class="arrow" />-->
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>
+			
+			<!--第十屏-->
+			
+			<!--<div class="swiper-slide swiper-slideout">
+				<img src="images/ten1.png" class="ten1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/ten2.png" class="ten2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s" />
+				<img src="images/ten3.png" class="ten3 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s" />
+				<img src="images/ten4.png" class="ten4 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s" />
+				<img src="images/ten5.png" class="ten5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.3s" />
+				<img src="images/ten6.png" class="ten6 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.8s" />
+				<img src="images/ten7.png" class="ten7 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="3.3s" />
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>-->
+			
+			<div class="swiper-slide swiper-slideout">
+				<img src="images/ten1.png" class="ten1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" />
+				<img src="images/ten8.png" class="ten8 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s" />
+				<img src="images/ten2.png" class="ten2 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s" />
+				<img src="images/ten3.png" class="ten3 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s" />
+				<img src="images/ten4.png" class="ten4 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s" />
+				<img src="images/ten5.png" class="ten5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.3s" />
+				<img src="images/ten6.png" class="ten6 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.8s" />
+				<!--<img src="images/ten7.png" class="ten7 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s" swiper-animate-delay="3.3s" />-->
+				<img src="images/ten9.png" class="ten9 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s" />
+				<img src="images/ten10.png" class="ten10 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.8s" />
+				<img src="images/ten3.png" class="ten3-1 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.3s" />
+				<img src="images/ten11.png" class="ten11 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="1.8s" />
+				<img src="images/ten5.png" class="ten5-1 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.3s" />
+				<img src="images/ten12.png" class="ten12 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.5s" swiper-animate-delay="2.8s" />
+				
+				
+				
+				<img src="images/arrow1.png" class="arrow" />
+				<img src="images/arrow1.png" class="arrow arrow1" />
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>          
