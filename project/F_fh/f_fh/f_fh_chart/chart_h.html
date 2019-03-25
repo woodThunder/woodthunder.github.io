@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no" name="viewport">
+	<title>私人订制-成长曲线</title>
+	<link rel="stylesheet" href="css/common.css">
+	<script src="javascript/jquery-1.9.1.min.js"></script>
+	<script src="javascript/jcancas.js"></script>
+	<script src="https://unpkg.com/scrollbooster@1.0.4/dist/scrollbooster.min.js"></script>
+	<!--单独引用-->
+	<link rel="stylesheet" href="css/x_style.css">
+</head>
+<body class="bg childcare echarts">
+<div class="echarts_wrap">
+	<div class="echarts_box">
+		<div class="echarts_slide">第三天</div>
+		<h2><img src="images/echarts_icon01.png"/>恭喜您完成了第1次记录</h2>
+		<dl>
+			<dt class="fl"><img src="images/echarts_icon02.png"/></dt>
+			<dd class="fl">
+				<div class="echarts_body">
+					<ul>
+						<li class="fl">
+							<span>身高</span><br>
+							<i>45.0<em>CM</em></i>
+						</li>
+						<li class="fl">
+							<span>体重</span><br>
+							<i>2.80<em>KG</em></i>
+						</li>
+					</ul>
+				</div>
+				<p>平均标准：身高48.1-51.9cm，体重2.8-3.8kg</p>
+			</dd>
+		</dl>
+	</div>
+</div>
+<div class="tabs">
+	<ul>
+		<li>
+			<a href="" class="on">身高<i></i></a>
+		</li>
+		<li>
+			<a href="">体重<i></i></a>
+		</li>
+	</ul>
+</div>
+<div class="echarts_con">
+	<div class="echarts_con_t">
+		<style type="text/css">
+			*{ margin:0; padding: 0;}
+			html{
+				font-size: 13.333vw;
+			}
+			body{ overflow-x: hidden;}
+			.baby-chart{ position: relative; width:100%; height:5.5rem; overflow: hidden; }
+			.canvas-wrap{ position: relative; width:6rem; height:calc(5.5rem - 2px); border-bottom:2px
+			solid #9d6917; overflow: hidden; left:calc(50% + 1px); transform: translateX(-50%); -webkit-transform:translateX(-50%);z-index: 200; top:2px;}
+			.canvas-wrap canvas,.canvas-box{ position: absolute; left:0; bottom:0;}
+			.canvas-tag{ position: absolute; font-size:12px;}
+			/*左侧*/
+			.baby-chart-l{ position: absolute; width:6rem; height:100%; left:calc(50% - 1px); transform: translateX(-50%); -webkit-transform: translateX(-50%); border-left:2px solid #9d6917; z-index:100; bottom:0;}
+			.baby-chart-l span{ display: block; position: absolute; width:auto; left:0%; font-size:12px; transform:translateX(-135%) translateY(50%); -webkit-transform: translateX(-135%) translateY(50%); width:20px; text-align: right;}
+			.baby-chart-l span:first-child{ transform:translateX(-135%) translateY(0%); -webkit-transform: translateX(-135%) translateY(0%);}
+
+			.baby-chart-b-wrap{ position: relative; width:calc(6rem + 24px); overflow: hidden; height:24px; left:calc(50% + 1px); transform: translateX(-50%); -webkit-transform:translateX(-50%);z-index: 200;}
+			.baby-chart-b{ position: relative; width:6rem; z-index: 200; margin: 0 auto;}
+			.baby-chart-b span{ font-size:12px; position: absolute; top:0; transform:translateX(-50%); -webkit-transform: translateX(-50%); display: inline;
+				width: 2em; text-align: center;}
+
+			@media (max-width:375px){
+				.baby-chart{ height:5rem;}
+				.canvas-wrap{height:calc(5rem - 2px);}
+				.childcare .tabs{ height:calc(51px - 0.4rem);}
+				.childcare .tabs ul li,.childcare .tabs ul li a{ margin:0; height:calc(51px - 0.4rem); line-height:calc(51px - 0.4rem);}
+			}
+		</style>
+		<div class="baby-chart">
+			<div class="baby-chart-l">
+
+			</div>
+			<div class="canvas-wrap" id="canvas-wrap">
+				<div class="canvas-box">
+					<canvas id="canvas" width="400" height="400" ></canvas>
+					<span class="canvas-tag canvas-tag1">97%</span>
+					<span class="canvas-tag canvas-tag2">59%</span>
+					<span class="canvas-tag canvas-tag3">3%</span>
+				</div>
+			</div>
+		</div>
+		<div class="baby-chart-b-wrap">
+			<div class="baby-chart-b"></div>
+		</div>
+		<script>
+            var targetCanvas=$("#canvas");
+            var targetBox=$(".canvas-box");
+
+
+            var paramArr_t=[],paramArr_c=[],paramArr_b=[];
+            //引用json
+            $.getJSON("json/BoyHeight.json",function(data){
+
+                //用户标点------宝宝出生日期
+                var babyDate='2018-01-01';
+
+                //用户标点------使用日期
+                var beginDate='2018-03-02';
+
+                //用户标点------数据
+                var dataInput=[
+                    {
+                        "value":2.2,
+                        "time":"2018-04-01"
+                    },
+                    {
+                        "value":3.2,
+                        "time":"2018-06-01"
+                    },
+                    {
+                        "value":4.2,
+                        "time":"2018-07-01"
+                    },
+                    {
+                        "value":2.2,
+                        "time":"2018-09-01"
+                    },
+                    {
+                        "value":3.3,
+                        "time":"2019-06-01"
+                    },
+                    {
+                        "value":4.4,
+                        "time":"2020-06-02"
+                    },
+                    {
+                        "value":2.6,
+                        "time":"2020-06-03"
+                    },
+                    {
+                        "value":3.1,
+                        "time":"2021-06-04"
+                    },
+                    {
+                        "value":4.8,
+                        "time":"2022-06-05"
+                    },
+                    {
+                        "value":2.8,
+                        "time":"2023-06-10"
+                    }
+                ]
+
+                var differData=getMonths(babyDate,dataInput[0].time)-1;
+
+                if(differData%2!=0){
+                    differData=differData-1;
+                }else{
+                    differData=differData-2;
+                }
+
+                var afterMonth=addMonth(babyDate,differData)
+
+                data.splice(0,differData);
+
+                //console.log(data);
+
+                //数据导入数组
+                for(var maxNum=0; maxNum<data.length; maxNum++){
+                    paramArr_t.push(data[maxNum].value.max);
+                }
+
+                for(var aveNum=0; aveNum<data.length; aveNum++){
+                    paramArr_c.push(data[aveNum].value.average);
+                }
+
+                for(var minNum=0; minNum<data.length; minNum++){
+                    paramArr_b.push(data[minNum].value.min);
+                }
+
+                var paramXp=12;
+                var paramYp=6;
+                var diffForm=4;
+                var paramX=paramArr_t.length;
+                var paramY=data[data.length-1].value.max;
+                var axisY=Math.ceil(paramY/10);
+
+                var wrapHeight=$(".canvas-wrap").height();
+                var totleWidth=$(".canvas-wrap").width()/paramXp*paramX;
+                var totleHeight=$(".canvas-wrap").height()/paramYp*axisY;
+
+                var diffSpac=$(".canvas-wrap").height()/paramYp;
+                var canvasHeight=totleHeight+diffSpac*diffForm;
+
+
+                //显示differX
+                var diffX=$(".canvas-wrap").width()/paramXp;
+                //显示differY
+                var diffY=$(".canvas-wrap").height()/paramYp;
+
+                //设点x坐标
+                function getNumberX(param,num){
+                    var finX=totleWidth/(param-1)*num;
+                    return finX;
+                }
+                //设点y坐标
+                function getNumberY(param,num){
+                    var finY=((((Math.ceil(paramY/10)+diffForm)*10)-num)*canvasHeight)/((Math.ceil(paramY/10)+diffForm)*10);
+                    return finY;
+                }
+
+                for(var i=0; i<axisY+diffForm; i++){
+                    $(".baby-chart-l").append("<span style='bottom:"+diffY*i+"px;'>"+10*i+"</span>");
+                }
+
+                for(var i=0; i<paramX; i++){
+                    if(i%2==0){
+                        $(".baby-chart-b").append("<span style='left:"+diffX*i+"px; line-height:24px'>"+data[i].Month+"</span>");
+                    }
+                }
+
+                //alert(axisY);
+                $(".baby-chart-l").height(canvasHeight);
+
+                targetCanvas.attr("width",totleWidth);
+                targetCanvas.attr("height",canvasHeight);
+                targetBox.css({"width":totleWidth,"height":canvasHeight});
+
+
+                //画线区域
+                var drawline_area={
+                    strokeStyle: '#000',
+                    strokeWidth: 0
+                }
+                for(var i=0; i<paramArr_t.length; i++){
+                    var line_i=i+1;
+                    drawline_area["x"+line_i]=getNumberX(paramX,i);
+                    drawline_area["y"+line_i]=getNumberY(paramY,paramArr_t[i]);
+                }
+                var countPara=paramArr_t.length-1;
+                for(var i=paramArr_t.length; i<paramArr_t.length*2; i++){
+                    var line_i=i+1;
+                    drawline_area["x"+line_i]=getNumberX(paramX,countPara);
+                    drawline_area["y"+line_i]=getNumberY(paramY,paramArr_b[countPara]);
+                    //console.log(paramX+","+countPara+","+paramY+","+paramArr_b[countPara]);
+                    countPara--;
+                }
+                drawline_area["closed"]=true;
+                drawline_area["fillStyle"]='#f9eed7';
+                $('canvas').drawLine(drawline_area);
+
+                //画线------上
+                var drawline_top={
+                    strokeStyle: '#f1d394',
+                    strokeWidth: 1
+                }
+                for(var i=0; i<paramArr_t.length; i++){
+                    var line_i=i+1;
+                    drawline_top["x"+line_i]=getNumberX(paramX,i);
+                    drawline_top["y"+line_i]=getNumberY(paramY,paramArr_t[i]);
+                    $('canvas').drawLine(drawline_top);
+                }
+
+                //画线------下
+                var drawline_bottom={
+                    strokeStyle: '#f1d394',
+                    strokeWidth: 1
+                }
+                for(var i=0; i<paramArr_b.length; i++){
+                    var line_i=i+1;
+                    drawline_bottom["x"+line_i]=getNumberX(paramX,i);
+                    drawline_bottom["y"+line_i]=getNumberY(paramY,paramArr_b[i]);
+                    $('canvas').drawLine(drawline_bottom);
+                }
+
+                //画线------中
+                var drawline_center={
+                    strokeStyle: '#f1d394',
+                    strokeWidth: 1
+                }
+                for(var i=0; i<paramArr_c.length; i++){
+                    var line_i=i+1;
+                    drawline_center["x"+line_i]=getNumberX(paramX,i);
+                    drawline_center["y"+line_i]=getNumberY(paramY,paramArr_c[i]);
+                    $('canvas').drawLine(drawline_center);
+                }
+
+
+
+                //起始中心点
+                var centerPointBegin=totleHeight-getNumberY(paramY,paramArr_c[0]-diffSpac*diffForm*(paramY/totleHeight));
+                //结束中心点
+                var centerPointEnd=totleHeight-getNumberY(paramY,paramArr_c[paramArr_c.length-1]-diffSpac*diffForm*(paramY/totleHeight));
+                //起伏高度系数
+                var heightParam=totleHeight/(getNumberY(paramY,paramArr_b[0])-getNumberY(paramY,paramArr_t[paramArr_t.length-1]));
+
+
+                //网格线条
+                for(var i=0; i<axisY+diffForm; i++) {
+                    var objLineBasex = {
+                        strokeStyle: '#e7e7e7',
+                        strokeWidth: 1,
+                        x1: 0, y1: diffY*i,
+                        //totleHeight - totleHeight / axisY * i
+                        x2: totleWidth, y2: diffY*i
+                    }
+                    $('canvas').drawLine(objLineBasex);
+                }
+
+                for(var i=0; i<paramX; i++) {
+                    var objLineBasey = {
+                        strokeStyle: '#e7e7e7',
+                        strokeWidth: 1,
+                        x1: (totleWidth - totleWidth / paramX * i)*2, y1: 0,
+                        x2: (totleWidth - totleWidth / paramX * i)*2, y2: canvasHeight
+                    }
+                    $('canvas').drawLine(objLineBasey);
+                }
+
+
+                //计算天数差
+                function getTime2Time($time1, $time2){
+                    var time1 = arguments[0], time2 = arguments[1];
+                    time1 = Date.parse(time1)/1000;
+                    time2 = Date.parse(time2)/1000;
+                    var time_ = time1 - time2;
+                    return (time_/(3600*24)*-1);
+                }
+
+                //计算月份差
+                function getMonths(date1 , date2){
+                    //用-分成数组
+                    date1 = date1.split("-");
+                    date2 = date2.split("-");
+                    //获取年,月数
+                    var year1 = parseInt(date1[0]) ,
+                        month1 = parseInt(date1[1]) ,
+                        year2 = parseInt(date2[0]) ,
+                        month2 = parseInt(date2[1]) ,
+                        //通过年,月差计算月份差
+                        months = (year2 - year1) * 12 + (month2-month1) + 1;
+                    return months;
+                }
+
+                //添加月份
+                function addMonth(date, months) {
+                    var datearr = date.split("-");
+                    var y = parseInt(datearr[0]);
+                    var m = parseInt(datearr[1][0] == 0 ? datearr[1][1] : datearr[1]) - 1;
+                    var d = parseInt(datearr[2][0] == 0 ? datearr[2][1] : datearr[2]);
+
+                    y += Math.floor((m + months) / 12); //计算年
+                    m = Math.floor((m + months) % 12) + 1; //计算月
+                    var d_max = new Date(y + "/" + (m + 1) + "/0").getDate();  //获取计算后的月的最大天数
+                    if (d > d_max) {
+                        d = d_max;
+                    }
+
+                    return (y + "-" + (m < 10 ? ("0" + m) : m) + "-" + (d < 10 ? ("0" + d) : d));
+                }
+
+
+                //获取当前日期
+                function getNowFormatDate() {
+                    var date = new Date();
+                    var seperator1 = "-";
+                    var seperator2 = ":";
+                    var month = date.getMonth() + 1;
+                    var strDate = date.getDate();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                    return currentdate;
+                }
+
+
+                //计算天数差
+                var endStr=addMonth(babyDate,72);
+                var diffDate=Math.ceil(getTime2Time(babyDate, endStr));
+
+                //今天线
+                var diffNow=Math.ceil(getTime2Time(beginDate, getNowFormatDate()));
+                $('canvas').drawLine({
+                    strokeStyle: '#edd196',
+                    strokeWidth: 2,
+                    strokeDash: [5],
+                    strokeDashOffset: 0,
+                    x1: getNumberX(diffDate,diffNow), y1: 0,
+                    x2: getNumberX(diffDate,diffNow), y2: canvasHeight
+                });
+
+
+                //用户标点------公共样式
+                var project={
+                    strokeStyle: '#000000',
+                    strokeWidth: 1
+                }
+                //用户标点------画线
+                for(var i=0; i<dataInput.length; i++){
+
+                    var diff=Math.ceil(getTime2Time(afterMonth, dataInput[i].time));
+
+                    var line_i=i+1;
+                    project["x"+line_i]=getNumberX(diffDate,diff);
+                    project["y"+line_i]=getNumberY(paramY,dataInput[i].value);
+                    $('canvas').drawLine(project);
+                }
+                //console.log(project);
+                //用户标点------描点
+                for(var i=0; i<dataInput.length; i++){
+                    var diff=Math.ceil(getTime2Time(afterMonth, dataInput[i].time));
+                    $('canvas').drawArc({
+                        strokeStyle: '#e8c26f',
+                        strokeWidth: 2,
+                        bringToFront: true,
+                        fillStyle: '#ffffff',
+                        x:  getNumberX(diffDate,diff), y: getNumberY(paramY,dataInput[i].value),
+                        radius: 3
+                    });
+                }
+
+
+
+                (function () {
+                    var scrollEl = document.querySelector('.canvas-box')
+                    var scr = new ScrollBooster({
+                        viewport: document.querySelector('#canvas-wrap'),
+                        emulateScroll: true,
+                        mode: 'x',
+                        bounce:false,
+                        onUpdate: function (data) {
+                            var ratio=Math.floor(data.position.x/(totleWidth/paramX)+paramXp);
+                            var spanWidth=$(".canvas-tag1").width();
+                            var spanHeight=$(".canvas-tag1").height();
+                            scrollEl.style.transform = 'translate(' + -data.position.x + 'px)';
+                            $(".baby-chart-b").css("left",-data.position.x);
+                            if(paramArr_c[0]*totleHeight/paramY > wrapHeight/2){
+                                $(".canvas-box,.baby-chart-l").css("bottom",((paramArr_c[0]*totleHeight/paramY-wrapHeight/2)*-1)+data.position.x*((centerPointEnd-centerPointBegin)/totleWidth*-1));
+                                //((paramArr_c[0]*totleHeight/paramY-wrapHeight/2)*-1)+data.position.x*((centerPointEnd-centerPointBegin)/totleWidth*-1)
+                            }
+                            //data.position.x*-totleHeight/totleWidth/heightParam-centerPoint+wrapHeight/2
+                            $(".canvas-tag1").css({"left":$(".canvas-wrap").width()-spanWidth-$(".canvas-box").position().left,"bottom":canvasHeight*(paramArr_t[ratio]/((Math.ceil(paramY/10)+diffForm)*10))-spanHeight/2});
+                            $(".canvas-tag2").css({"left":$(".canvas-wrap").width()-spanWidth-$(".canvas-box").position().left,"bottom":canvasHeight*(paramArr_c[ratio]/((Math.ceil(paramY/10)+diffForm)*10))-spanHeight/2});
+                            $(".canvas-tag3").css({"left":$(".canvas-wrap").width()-spanWidth-$(".canvas-box").position().left,"bottom":canvasHeight*(paramArr_b[ratio]/((Math.ceil(paramY/10)+diffForm)*10))-spanHeight/2});
+                        }
+                    })
+                    scr.setPosition({
+                        x: 0
+                    })
+                })()
+
+            })
+
+
+
+		</script>
+	</div>
+	<div class="echarts_con_b">
+		<div class="legend">
+			<ul>
+				<li>
+					<i></i>标准数值
+				</li>
+				<li>
+					<i></i>宝宝数值
+				</li>
+			</ul>
+		</div>
+		<p>以上数据及评判标准来自世界卫生组织</p>
+	</div>
+</div>
+
+</body>
+</html>

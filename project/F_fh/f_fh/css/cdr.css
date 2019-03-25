@@ -1,0 +1,64 @@
+html{height: auto;overflow: visible;}
+.zhuisu{max-width: 750px;margin: auto;}
+.zhuisus{background: url(../upload/zs_pic.jpg) #e7c983 no-repeat left top;background-size: 100% auto;}
+.zs_block1{text-align: center;}
+.zs_block1 img{width: 100%;}
+.zs_block1 p{display: inline-block;font-size: 14px;line-height: 40px;padding: 0 15px;background: #fdfdfd;color:#976f4c;height: 40px;border: 1px solid #e2dad1;border-radius: 20px;}
+.zs_block2{background: url(../upload/zs_block2.png) center top no-repeat;background-size: 100% auto;}
+.zs_block2 img{width: 100%;}
+.zs_block2_co{padding: 0 15px;box-sizing: border-box;overflow: hidden;padding-top: 33%;}
+.zs_block2_col{width: 48%;float: left;text-align: center;}
+.zs_block2_col dl{padding-top: 30px;}
+.zs_block2_col dt{margin-bottom: 15px;}
+.zs_block2_col dt img{width: 50%;min-width: 30px;}
+.zs_block2_col dd h3{font-weight: normal;color:#462f15;font-size: 16px;margin-bottom: 10px;}
+.zs_block2_col dd p{color:#6b6b6b;line-height: 1.5;}
+.zs_block2_cor{width: 52%;float: right;}
+.zs_block2_cor img{width: 100%;}
+
+
+.rukou{max-width: 750px;margin: auto;}
+.rukous{background: url(../upload/zs_tu1.jpg) #e7c983 no-repeat left top;background-size: 100% auto;}
+.rukou_1 img{width: 100%;}
+.rukou_2{position: relative;}
+.rukou_2>img{width: 100%;}
+.rukou_2s{background: url(../upload/zs_block22.png) center top no-repeat;background-size: 100% auto;position: absolute;width: 100%;top: 0;left: 0;text-align: center;}
+.rukou_2s dl{padding: 0 15px; padding-top: 25%;margin-bottom: 5%;}
+.rukou_2s dl dt{cursor: pointer; height: 52px;font-size: 22px;line-height: 52px;background: url(../images/rukou_bg1.png) center no-repeat;border-radius: 8px;color:#fff;text-align: center;margin-bottom: 4%;}
+.rukou_2s dl dt span{display: block;background: url(../images/rukou_icon1.png) 33% center no-repeat;background-size: 22px auto;text-indent: 40px;}
+.rukou_2s dl dd{cursor: pointer; height: 52px;font-size: 22px;line-height: 52px;background: #fff;border: 1px solid #966e4d;color:#966e4d;border-radius: 8px;text-align: center;}
+.rukou_2s dl dd span{display: block;background: url(../images/rukou_icon2.png) 33% center no-repeat;background-size: 22px auto;text-indent: 40px;}
+.rukou_2s p{display: inline-block;font-size: 16px;color:#6b6b6b;cursor: pointer;background: url(../images/rukou_icon3.png) left center no-repeat;background-size: 16px auto;padding-left: 25px;}
+.rukou1{position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,0.6);top: 0;left: 0;box-sizing: border-box;padding: 15px;z-index: 10;display: none;}
+.rukou1.on{display: block;}
+.rukou1s{height: 85%;background:#fff url(../upload/rukou1_bg.png) top center no-repeat;background-size:100% auto;box-sizing: border-box;padding: 15px;padding-top: 27%;margin-bottom: 15px;border-radius: 8px;}
+.rukou1s ul{max-height: 85%;overflow: auto;margin-bottom: 15px;}
+.rukou1s ul li{border-bottom: 1px solid #e6c67d;padding: 8px 0;overflow: hidden;}
+.rukou1s ul li b{float: left;font-size: 16px;color:#966e4d;width: 90px;font-weight: normal;line-height: 20px;letter-spacing: 1px;}
+.rukou1s ul li i{color:#6b6b6b;line-height: 20px;width: calc(100% - 90px);float: left;word-break: break-all;}
+.rukou1sb{overflow: hidden;}
+.rukou1sb a{float: left;width: 47%;background: #007AFF;border-radius: 8px;overflow: hidden;font-size: 16px;height: 38px;line-height: 38px;text-align: center;}
+.rukou1sb a:last-child{float: right;background: #fff;border: 1px solid #966e4d;color:#966e4d;}
+.rukou1sb a:first-child{background: url(../images/rukou_bg1.png) center no-repeat;color:#fff;height: 40px;line-height: 40px;}
+.rukou1sb a:first-child em{display: block;background: url(../images/rukou_icon4.png) 27% center no-repeat;background-size:auto 16px;text-indent: 30px;}
+.rukou1sb a:last-child em{display: block;background: url(../images/rukou_icon5.png) 27% center no-repeat;background-size:auto 16px;text-indent: 30px;}
+.rukou1 .guanbi{display: block;margin: auto;width: 40px;height: 40px;background: url(../images/cuo.png) center no-repeat;background-size: 100% 100%;}
+
+.rukou2{position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,0.6);top: 0;left: 0;box-sizing: border-box;padding: 15px;z-index: 10;display: none;}
+.rukou2.on{display: block;}
+.rukou2s{background: #fcfcfc;box-sizing: border-box;padding: 30px 15px;margin-bottom: 15px;border-radius: 8px;position: absolute;left: 15px;bottom: 40%;width: calc(100% - 30px);}
+.rukou2st{margin-bottom: 20px;}
+.rukou2st input{width: 100%;height: 40px;line-height: 38px;box-sizing: border-box;color:#966e4d;border: 1px solid #966e4d;border-radius: 8px;padding: 0 10px;font-size: 16px;}
+.rukou2sb button{width: 100%;border: 0;height: 40px;line-height: 40px;text-align: center;color:#fff;background: url(../images/rukou_bg1.png) center no-repeat;border-radius: 8px;font-size: 16px;letter-spacing: 5px;}
+.rukou2 .guanbi{display: block;margin: auto;width: 40px;height: 40px;background: url(../images/cuo.png) center no-repeat;background-size: 100% 100%;position: absolute;bottom: 40%;left: 50%;margin-left: -20px;margin-bottom: -40px;cursor: pointer;}
+
+.rukou3{position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,0.6);top: 0;left: 0;box-sizing: border-box;padding: 15px;z-index: 10;display: none;}
+.rukou3.on{display: block;}
+.rukou3s{background: #fcfcfc;box-sizing: border-box;margin-bottom: 15px;border-radius: 8px;position: absolute;left: 15px;width: calc(100% - 30px);top: 50%;transform: translateY(-50%);overflow: hidden;}
+.rukou3sin{padding: 20px 30px;}
+.rukou3sin h2{font-size: 16px;font-weight: normal;color:#966e4d;margin-bottom: 15px;}
+.rukou3sin p{line-height: 1.7;margin-bottom: 10px;color:#333;}
+.rukou3sin p span{color:#966e4d;}
+.rukou3s .guanbi{display: block;height: 40px;background: url(../images/rukou_bg1.png) center no-repeat;color:#fff;font-size: 16px;text-align: center;line-height: 40px;letter-spacing: 5px;cursor: pointer;}
+
+

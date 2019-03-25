@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no;" name="viewport">
+    <title>私人订制-修改上传照片</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../javascript/jquery-1.9.1.min.js"></script>
+    <script src="../javascript/swiper.min.js"></script>
+    <script src="../javascript/hammer.js"></script>
+    <script src="../javascript/wow.min.js"></script>
+    <script src="../javascript/function.js"></script>
+    <!--单独引用-->
+    <link href="../css/mobiscroll-2.13.2.full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/x_style.css">
+    
+    <script src="../javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascript/jquery.qqFace.js"></script>
+    <script src="../javascript/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
+    <script src="../javascript/x_function.js"></script>
+</head>
+<body class="bg editphoto">
+	<div class="editphoto_box sticky">
+		<div class="wrap">
+			<div class="message_box uploadph_box">
+				<textarea class="message_ta" id="message_ta" placeholder="宝宝今天第一次叫爸爸，好开心啊！"></textarea>
+				<div class="message_num fr">
+					<span class="message_num_d">0</span>/<span>300</span>
+				</div>
+				<div class="emoticon fr">
+					<img src="../images/uploadphoto_icon.png" class="emoticon_btn" />
+				</div>
+			</div>
+			<div class="uploadph_time">
+				<span class="fl">记录时间</span>
+				<div class="time fr">
+					<i class="fl">当前时间</i>
+					<!--<em class="fl">2018-02-05</em>-->
+					<input type="text" id="nowtime" class="fl" placeholder="" />
+				</div>
+			</div>
+			<div class="uploadph_con">
+				<p>上传照片</p>
+				<div class="uploadph_wrap">
+					<ul>
+						<li><div><img src="../upload/grow_img08.jpg"></div></li>
+						<li><div><img src="../upload/grow_img06.jpg"></div></li>
+						<li id="btn"><div><img src="../images/grow_upload_icon.jpg"></div></li>
+					</ul>                                                            
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="message_b sticky_footer">
+		<input type="button" class="message_btn" value="保存" />
+		<input type="button" class="message_btn del" value="删除记录" />
+	</div> 
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="../javascript/jquery.jsonp.js"></script>
+    <!--<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+    <script src="../javascript/sha1.js"></script>
+	<script>
+		$(document).ready(function(){
+			/*qq表情*/
+			$('.emoticon').qqFace({
+		
+				id : 'facebox', 
+		
+				assign:'message_ta', 
+		
+				path:'../images/arclist/'	//表情存放的路径
+		
+			});
+		
+		//			$(".sub_btn").click(function(){
+		//		
+		//				var str = $("#saytext").val();
+		//		
+		//				$("#show").html(replace_em(str));
+		//		
+		//			});
+		
+			
+			
+			
+			
+			$("#message_ta").keyup(function(){
+				var message = $(this).val();	
+				if(message.length > 300){
+					alert("字数不能超过300字！");
+					$(this).val(message.substring(0,300));
+					$(".message_num_d").html(300);
+				}else{
+					$(".message_num_d").html(message.length);
+				}
+			})
+			
+		})
+		window.onload = function(){
+            var data = new weixin();
+            console.log(data)
+            console.log(window.location)
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: 'wxe2c270315a0f5518', // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名
+                jsApiList: ['chooseImage'] // 必填，需要使用的JS接口列表
+            });
+            wx.checkJsApi({
+                jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+                success: function(res) {
+                // 以键值对的形式返回，可用的api值true，不可用为false
+                // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+                }
+            });
+            var btn = document.getElementById('btn');
+            btn.onclick = function(){
+                wx.chooseImage({
+                    count: 9, // 默认9
+                    //sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                    sizeType: ['compressed'],
+                    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+	                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+	                    var str = "";
+	                    for(var i=0; i < localIds.length;i++){
+	                    	str += '<li><div><img src="'+ localIds[i] +'" class="localImg" ></div></li>';
+	                    }
+	                    $(".uploadph_wrap ul").prepend(str);
+	                    
+	                    $(".localImg").each(function(){
+	                    	if($(this).height()>=$(this).width()){
+//	                    		alert(11)
+	                    		$(this).css({"height":"auto","width":"100%"});
+	                    	}else{
+//	                    		alert(22)
+	                    		$(this).css({"height":"100%","width":"auto"});
+	                    	}
+	                    })
+//	                    
+                    }
+                });
+            } 
+        }
+        function weixin(){
+            this.createNonceStr = function () {
+              return Math.random().toString(36).substr(2, 15);
+            };
+            this.createTimeStamp = function () {
+              return parseInt(new Date().getTime() / 1000) + ''
+            };
+            this.jsapi_ticket = 'kgt8ON7yVITDhtdwci0qed2MyZFi6j8J0BJrU38QIOdTTP2Pdcc6ifnz6jNZA7zis8qx3VslfXaQXm27ao1Mvg';
+//          this.url = encodeURIComponent(location.href.split('#')[0]);
+			this.url = location.href.split('#')[0];
+            // this.url = encodeURIComponent('localhost:8004/index.aspx');
+            this.noncestr =  this.createNonceStr();
+            this.timestamp = this.createTimeStamp();
+            this.str1 = 'jsapi_ticket='+ this.jsapi_ticket + '&noncestr=' + this.noncestr +'&timestamp='+this.timestamp+'&url='+this.url;
+            this.sha = hex_sha1(this.str1);
+            return this.data = {
+                'timestamp': this.timestamp,
+                'nonceStr': this.noncestr,
+                'signature': this.sha,
+                'url': this.url
+            }
+        }
+        /*表情查看结果*/
+
+		function replace_em(str){
+		
+			str = str.replace(/\</g,'&lt;');
+		
+			str = str.replace(/\>/g,'&gt;');
+		
+			str = str.replace(/\n/g,'<br/>');
+		
+			str = str.replace(/\[em_([0-9]*)\]/g,'<img src="arclist/$1.gif" border="0" />');
+		
+			return str;
+		
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no;" name="viewport">
+    <title>星妈课堂-直播</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../javascript/jquery-1.9.1.min.js"></script>
+    <script src="../javascript/swiper.min.js"></script>
+    <script src="../javascript/hammer.js"></script>
+    <script src="../javascript/wow.min.js"></script>
+    <script src="../javascript/function.js"></script>
+    
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css">
+    <script src="../javascript/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!--单独引用-->
+    <link href="../css/mobiscroll-2.13.2.full.min.css" rel="stylesheet" type="text/css" />
+    <script src="../javascript/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/x_style.css">
+    <script src="../javascript/x_function.js"></script>
+</head>
+<body class="bg" style="height: auto;">
+	<div class="bg1 course1 video1">
+		<div class="course1_img">
+			<a href="video.html">
+				<img src="../upload/course_img.jpg" />
+			</a>
+		</div>
+		<div class="video1_b">
+			<h1>妈妈情绪如何影响宝宝的安全感</h1>
+			<p class="video1_info"><span class="video1_man">主讲人：张峰</span><span class="video1_views">在线人数：15222</span><span class="video1_status"><i></i>已结束</span></p>
+		</div> 
+		
+		<a href="card.html" class="course1_edit"><i></i>我的邀请卡</a>
+	</div>
+	<div class="bg1 video2">
+		<div class="video2_wrap">
+			<div class="video2_live">
+				<div class="video2_live_img fl"><img src="../images/video2_img01.png"/></div>
+				<div class="video2_live_con fl">
+					<h1><span>陈杰</span><span>嘉宾</span></h1>
+					<p>宝妈们好，感谢大家来飞鹤星妈课堂！我们8：00准时开课哦想要了解更多育儿知识，体验私人化的育儿专家就来关注飞鹤星妈会吧~</p>
+				</div>
+			</div>
+			<div class="video2_user">
+				<div class="video2_user_wrap fr">
+					<div class="video2_user_img fr"><img src="../images/video2_img02.png"/></div>
+					<div class="video2_user_con fl">
+						<p>小孩子吐奶怎么办</p>
+					</div>
+				</div>
+			</div>
+			<div class="video2_user">
+				<div class="video2_user_wrap fr">
+					<div class="video2_user_img fr"><img src="../images/video2_img03.png"/></div>
+					<div class="video2_user_con fl">
+						<p>小孩子吐奶怎么办</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg video3">
+		<input type="text" placeholder="来说点什么吧" class="video3_txt fl"/>
+		<input type="button" class="video3_barrage fl"/>
+		<input type="button" class="message_btn video3_collec fl" value="收藏"/>
+	</div>
+	<script>
+		$(document).ready(function(){
+			console.log($(window).height()+" ，"+$(".video1").height())
+			$(".video2").height($(window).height()-$(".video1").height()-122);
+		})
+	</script>
+</body>
+</html>

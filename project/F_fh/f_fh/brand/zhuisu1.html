@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no" name="viewport">
+    <title>追溯</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/cdr.css"/>
+    <script src="../javascript/jquery.js"></script>
+</head>
+<body class="rukou">
+	<div class="rukous">
+		<div class="rukou_1">
+			<img src="../upload/zs_tu2.png"/>
+		</div>
+		<div class="rukou_2">
+			<img src="../upload/zs_tu3.png"/>
+			<div class="rukou_2s">
+				<dl>
+					<dt><span>扫一扫查询</span></dt>
+					<dd><span>输入追溯码</span></dd>
+				</dl>
+				<p>特别说明</p>
+			</div>
+		</div>
+	</div>
+	<div class="rukou1">
+		<div class="rukou1s">
+			<ul>
+				<li>
+					<b>产品名称</b><i>星飞帆2段较大婴儿配方奶粉听装300g</i>
+				</li>
+				<li>
+					<b>所在箱码</b><i>002334344923339298002</i>
+				</li>
+				<li>
+					<b>产品批号</b><i>405566934594900238</i>
+				</li>
+				<li>
+					<b>产品编号</b><i>G56692005</i>
+				</li>
+				<li>
+					<b>产品规格</b><i>300*12</i>
+				</li>
+				<li>
+					<b>奶源地</b><i>黑龙江省齐齐哈尔市</i>
+				</li>
+				<li>
+					<b>生产线</b><i>甘南32小听线</i>
+				</li>
+				<li>
+					<b>生产日期</b><i>20171122</i>
+				</li>
+				<li>
+					<b>质检单号</b><i>1700233440</i>
+				</li>
+				<li>
+					<b>质检日期</b><i>2017-11-23</i>
+				</li>
+				<li>
+					<b>生产地</b><i>甘南</i>
+				</li>
+				<li>
+					<b>检验地</b><i>甘南</i>
+				</li>
+			</ul>
+			<div class="rukou1sb">
+				<a href="#"><em>质检报告</em></a>
+				<a href="#"><em>质量标准</em></a>
+			</div>
+		</div>
+		<a class="guanbi" href="#"></a>
+	</div>
+	<div class="rukou2">
+		<div class="rukou2s">
+			<div class="rukou2st">
+				<input type="text" placeholder="请输入追溯码" />
+			</div>
+			<div class="rukou2sb">
+				<button>查询</button>
+			</div>
+		</div>
+		<a class="guanbi"></a>
+	</div>
+	<div class="rukou3">
+		<div class="rukou3s">
+			<div class="rukou3sin">
+				<h2>特别说明</h2>
+				<p>1.产品可追溯系统从2012年1月15日开始试运行，于2012年3月1日正式运行即可<span>对在保质期内的星飞帆、超级飞帆和飞帆等飞鹤全品项系列零售听装及盒装产品进行追溯。</span></p>
+				<p>2.产品可追溯系统可查询的<span>飞鹤产品为飞鹤全品项系列的全部大听装及生产日期在2014年8月以后的盒装产品。</span></p>
+				<p>3.除飞鹤关山小听产品外，飞鹤其他品项系列的小听粉（生产日期在2015年6月1日之后）均可用此系统进行追溯。</p>
+			</div>
+			<a class="guanbi">确定</a>
+		</div>
+		
+	</div>
+</body>
+<script>
+	$(function(){
+		$(window).resize(function(){
+			$('.rukou_2s').height($('.rukou_2s').width()*0.70);
+		})
+		$(window).resize();
+		$('.rukou3 .guanbi').on('click',function(){
+			$('.rukou3').removeClass('on');
+		})
+		$('.rukou_2s p').on('click',function(){
+			$('.rukou3').addClass('on');
+		})
+		$('.rukou_2s dl dd').on('click',function(){
+			$('.rukou2').addClass('on');
+		})
+		$('.rukou2 .guanbi').on('click',function(){
+			$('.rukou2').removeClass('on');
+		})
+		$('.rukou_2s dl dt').on('click',function(){
+			window.location.href="zhuisu2.html";
+		})
+	})
+</script>
+</html>

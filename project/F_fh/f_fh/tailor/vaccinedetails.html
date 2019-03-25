@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no;" name="viewport">
+    <title>私人订制-疫苗详情</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../javascript/jquery-1.9.1.min.js"></script>
+    <script src="../javascript/swiper.min.js"></script>
+    <script src="../javascript/hammer.js"></script>
+    <script src="../javascript/wow.min.js"></script>
+    <script src="../javascript/function.js"></script>
+    <!--单独引用-->
+    <link href="../css/mobiscroll-2.13.2.full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/x_style.css">
+    
+    <script src="../javascript/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
+    <script src="../javascript/x_function.js"></script>
+</head>
+<body class="vaccinedetails">
+	<div class="vaccined_status">
+		<div class="fl">
+			<h2>卡介苗</h2>
+			<div class="label"><span class="">必打</span><span class="">免费</span></div>
+		</div>
+		
+		<div class="status fr">
+			<dl>
+				<dt>
+					<!--<span class="status_name">已接种</span>-->
+					<select name="status" id="vaccined_status_mobiscroll">
+					    <option value="1">已超时</option>
+					    <option value="2" selected="">已接种</option>
+					    <option value="3">未接种</option>
+					</select>
+					<img src="../images/vaccine_icon_status02.png" class="fl status_img" />
+				</dt>
+			</dl>
+		</div>
+	</div>
+	<div class="vaccined_time">
+		<div class="fl vaccined_time_tit">接种时间</div>
+		<!--<div class="fr vaccined_time_con">2018-02-05</div>-->
+		<input type="text" id="nowtime" class="fr" placeholder="" />
+	</div>
+	<div class="vaccined_con">
+		<dl>
+			<dt>预防疾病： </dt>
+			<dd>
+				<p>结核病（结核性脑膜炎、栗粒性肺结核）</p>
+			</dd>
+		</dl>
+		<dl>
+			<dt>接种年龄</dt>
+			<dd>
+				<p>出生当天</p>
+			</dd>
+		</dl>
+		<dl class="last">
+			<dt>疫苗介绍</dt>
+			<dd>
+				<p>疫苗作用：在我国，宝宝出生后就要注射卡介苗，它对于预防儿童结核病，特别是预防结核性脑膜炎、急性血行播散型结核等重症结核病具有明显效果。婴幼儿的抵抗力最弱，若被结核杆菌感染容易发生急性结核病，如结核性脑膜炎，危及生命，因此每个宝宝都需要注射卡介苗。</p>
+				<p>出生无接种禁忌症的新生儿都应注射卡介苗。</p>
+
+<p>PPD皮试阳性意味着体内感染过结核杆菌已产生抗体，或处于结核杆菌潜伏期，具体分析由医生根据孩子情况来解释。</p>
+
+<p>大于4岁的宝宝无需补种卡介苗。</p>
+
+<p>注意事项：如果由于种种原因出生时没有注射的婴幼儿争取在12月龄内完成接种，出生后3个月内可进行注射。如果宝宝超过3个月龄注射前需要先做结核菌素（PPD）皮试，皮试后72小时。</p>
+			</dd>
+		</dl>
+	</div>
+</body>
+</html>

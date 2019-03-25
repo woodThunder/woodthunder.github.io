@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <meta content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />
+
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%">
+       		
+       </div>
+       <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+//$.get('data/asset/data/aqi-beijing.json', function (data) {
+    myChart.setOption(option = {
+    	backgroundColor: '#fdf9f1',
+        title: {
+//          text: 'Beijing AQI'
+        },
+//      tooltip: {
+//          trigger: 'axis'
+//      },
+        grid: {
+//	        left: '3%',
+	        right: '10px',
+//	        bottom: '3%',
+//	        containLabel: true
+			backgroundColor: '#fdf9f1'
+	    },
+        xAxis: {
+        	type: 'category',
+            data: [0,1,2,3,4,5,6,7,8,9,10,11,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81],
+			axisTick:{
+				alignWithLabel:true
+			},
+			boundaryGap : false,
+			axisLine:{
+				lineStyle:{
+					color: '#9d6917',
+					width: 2
+				}
+			},
+			axisLabel:{
+				color: '#9c9c9c'
+			}
+        },
+        yAxis: {
+        	type: 'value',
+            
+            min: function(value) {
+			    return parseInt(value.min - 20);
+			},
+            max: function(value) {
+			    return parseInt(value.max + 20);
+			},
+			axisLine:{
+				lineStyle:{
+					color: '#9d6917',
+					width: 2
+				}
+			},
+			axisTick:{
+				interval: 10,
+			},
+			axisLabel:{
+				color: '#9c9c9c'
+			}
+        },
+//      toolbox: {
+//          left: 'center',
+//          feature: {
+//              dataZoom: {
+//                  yAxisIndex: 'none'
+//              },
+//              restore: {},
+//              saveAsImage: {}
+//          }
+//      },
+        dataZoom: {
+            type: 'inside',
+            start: 0,
+            end: 25,
+            zoomLock: true
+        },
+        series: [{
+        	name: '3SD',
+            type: 'line',
+            lineStyle:{
+            	color: '#eac87d'
+            },
+			itemStyle:{
+				color: '#eac87d',
+				opacity: 0
+			},
+			areaStyle:{
+				color: '#e8c26f',
+				opacity: 0.2
+			},
+            data: [55.8,61.2,65.7,69,71.7,73.9,75.8,77.4,78.9,80.5,82.1,83.6,85,88.9,92.4,95.9,99.5,102.5,105,107.2,109.4,110.7,112.7,114.6,116.5,118.5,120.6,122.6,124.7,126.7,128.6,130.4,132.1,133.8,135.6,137.6],
+        },{
+            name: '中位数',
+            type: 'line',
+            lineStyle:{
+            	color: '#eac87d'
+            },
+			itemStyle:{
+				color: '#eac87d',
+				opacity: 0
+			},
+            data: [50.4,54.8,58.7,62,64.6,66.7,68.4,69.8,71.2,72.6,74,75.3,76.5,79.8,82.7,85.6,88.5,91.1,93.3,95.4,97.5,98.8,100.6,102.4,104.1,105.9,107.7,109.5,111.3,113,114.7,116.3,117.7,119.2,120.7,122.3],
+        },{
+        	name: '-3SD',
+            lineStyle:{
+            	color: '#eac87d'
+            },
+			itemStyle:{
+				color: '#eac87d',
+				opacity: 0
+			},
+			areaStyle:{
+				color: '#fff',
+				opacity: 0.3
+			},
+            type: 'line',
+            data: [45.2,48.7,52.2,55.3,57.9,59.9,61.4,62.7,63.9,65.2,66.4,67.5,68.6,71.2,73.6,76,78.3,80.5,82.4,84.4,86.3,87.5,89.3,90.9,92.5,94,95.6,97.1,98.7,100.2,101.6,103,104.1,105.3,106.5,107.9],
+        },{
+        	name: '实际值',
+            lineStyle:{
+            	color: '#eac87d'
+            },
+			itemStyle:{
+				color: '#fff',
+				borderWidth: 3,
+				borderColor: '#e8c26f',
+			},
+			symbolSize: 8,
+            type: 'line',
+            data: [54.8,58.7,62,64.6,66.7,68.4,69.8,71.2,72.6,74,75.3,76.5,79.8,82.7,85.6,88.5,91.1,93.3,95.4,97.5,98.8,100.6,102.4,104.1,105.9,107.7,109.5,111.3,113,114.7,116.3,117.7,119.2,120.7,122.3,125],
+            
+//      	label:{
+//      		show: true,
+//      		formatter: '3%'
+//      	}
+            
+        }]
+    });
+//});;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no;" name="viewport">
+	<title>致星妈-产品中心-产品问答</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/swiper.min.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<script src="../javascript/jquery-1.9.1.min.js"></script>
+	<script src="../javascript/swiper.min.js"></script>
+	<script src="../javascript/hammer.js"></script>
+	<script src="../javascript/wow.min.js"></script>
+	<script src="../javascript/function.js"></script>
+	<!--单独引用-->
+	<link rel="stylesheet" href="../css/x_style.css">
+</head>
+
+<body class="interlocution bg">
+	<div class="tabs">
+		<ul>
+			<li data-src="interlocution_ajax.html" class="on">星飞帆</li>
+			<li data-src="interlocution_ajax1.html">智纯</li>
+			<li data-src="interlocution_ajax.html">臻爱</li>
+			<li data-src="interlocution_ajax.html">飞帆</li>
+			<li data-src="interlocution_ajax.html">星蕴</li>
+		</ul>
+	</div>
+	<div class="swiper-container gallery-top">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">1</div>
+			<div class="swiper-slide">2</div>
+			<div class="swiper-slide">3</div>
+			<div class="swiper-slide">4</div>
+			<div class="swiper-slide">5</div>
+		</div>
+	</div>
+	<script>
+		$(function() {
+
+			var galleryTop = new Swiper('.gallery-top', {
+				spaceBetween: 15,
+				//loop: true,
+				//loopedSlides: 5, //looped slides should be the same
+				//		navigation: {
+				//			nextEl: '.swiper-button-next',
+				//			prevEl: '.swiper-button-prev',
+				//		},
+				on:{
+				    slideChangeTransitionEnd: function(){
+				        var index = this.activeIndex;//切换结束时，告诉我现在是第几个slide
+				        $(".interlocution .tabs ul li:eq("+index+")").addClass("on").siblings().removeClass("on");
+				    },
+				},
+			});
+
+			$(".interlocution .tabs ul li").click(function() {
+				var index = $(this).index(); 
+				$(this).addClass("on").siblings().removeClass("on");
+				galleryTop.slideTo(index, 1000, false);
+			})
+
+		})
+	</script>
+</body>
+
+</html>
